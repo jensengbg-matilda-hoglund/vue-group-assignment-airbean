@@ -1,0 +1,47 @@
+<template>
+  <div id="app">
+    <router-view />
+  </div>
+</template>
+
+
+<style lang="scss">
+// google fonts
+@import url("https://fonts.googleapis.com/css?family=PT+Serif|Rufina|Work+Sans&display=swap");
+
+$black: #2f2926;
+$white: #ffffff;
+$red: #e5674e;
+
+//h1
+$rufina: "Rufina", serif;
+
+// h2, h3 etc
+$PT: "PT Serif", serif;
+
+// p
+$worksans: "Work Sans", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+html {
+  background: $white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app {
+  width: 37.5rem;
+  min-height: 66.7rem;
+  background: $black;
+  padding: 1.5rem;
+}
+</style>
