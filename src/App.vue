@@ -12,7 +12,8 @@
 $black: #2f2926;
 $white: #ffffff;
 $red: #e5674e;
-
+$green: #38846d;
+$latte: #f3e4e1;
 //h1
 $rufina: "Rufina", serif;
 
@@ -31,8 +32,9 @@ $worksans: "Work Sans", sans-serif;
 
 html {
   background: $white;
-  width: 100vw;
-  height: 100vh;
+  max-width: 100vw;
+  height: auto;
+  padding: 2rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,6 +44,5 @@ html {
   width: 37.5rem;
   min-height: 66.7rem;
   background: $black;
-  padding: 1.5rem;
 }
 </style>
