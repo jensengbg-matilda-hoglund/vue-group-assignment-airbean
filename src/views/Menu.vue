@@ -15,17 +15,15 @@
     <h1>Meny</h1>
     <section class="products">
       <ul>
-        <li
-          v-for="product in menu"
-          :key="product.id">
+        <li v-for="product in menu" :key="product.id">
           <button @click="addProductToCart(product)" class="add-btn">
             <img src="../assets/graphics/add.svg" />
           </button>
-          {{ product.title }} 
+          {{ product.title }}
           <!-- <span>...............</span>  -->
           {{ product.price }}
-          <br>
-          <span> {{ product.desc }} </span>
+          <br />
+          <span>{{ product.desc }}</span>
         </li>
       </ul>
     </section>
@@ -35,14 +33,14 @@
 </template>
 
 <script>
-import nav from '@/components/nav.vue'
+import nav from "@/components/nav.vue";
 // import cart from '@/components/cart.vue'
 
 export default {
-  name: 'Menu',
-  components: {nav},
+  name: "Menu",
+  components: { nav },
   created() {
-    this.$store.dispatch('getMenu')
+    this.$store.dispatch("getMenu");
   },
   computed: {
     menu() {
@@ -50,17 +48,15 @@ export default {
     }
   },
   methods: {
-    openMenu() {
-    },
+    openMenu() {},
     openCart() {
       this.$router.push("/order-status");
     },
     addProductToCart(product) {
-      this.$store.commit('addToCart', product);
-      console.log(this.$store.state.cart);
+      this.$store.commit("addToCart", product);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scooped>
@@ -77,7 +73,7 @@ export default {
 .upp {
   width: 37.5rem;
   height: 11.3rem;
-  background-image: url('../assets/graphics/graphics-header.svg');
+  background-image: url("../assets/graphics/graphics-header.svg");
 
   display: flex;
   flex-direction: row;
@@ -150,12 +146,13 @@ h1 {
 .footer {
   width: 37.5rem;
   height: 7.3rem;
-  background-image: url('../assets/graphics/graphics-footer.svg');
-  
+  background-image: url("../assets/graphics/graphics-footer.svg");
+
   flex-shrink: 0;
 }
 
-h1, li {
+h1,
+li {
   text-align: center;
   color: $black;
   font-family: $PT;
