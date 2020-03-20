@@ -18,26 +18,38 @@ export default new Vuex.Store({
       state.orderStatus = data;
       setInterval(() => {
         state.orderStatus.eta -= 1;
-        console.log(state.orderStatus);
       }, 60000);
     },
+    // addToCart from MENU-view
     addToCart(state, product) {
       const productObj = Object.assign({}, product);
       // check if product is in cart, if it is in cart, add +1 to quantity and set new total price.
       if (state.cart.includes(product)) {
-        const objIndex = state.cart.findIndex(obj => obj.id === productObj.id);
+        const index = state.cart.findIndex(obj => obj.id === productObj.id);
+        const price = state.cart[index].price;
 
-        const quantity = state.cart[objIndex].quantity;
-        const price = state.cart[objIndex].price;
-
-        state.cart[objIndex].quantity = quantity + 1;
-        state.cart[objIndex].totPrice += price;
+        state.cart[index].quantity += 1;
+        state.cart[index].totPrice += price;
       } else {
         productObj.quantity = 1;
         productObj.totPrice = productObj.price;
         state.cart.push(productObj);
       }
       console.log(state.cart);
+    },
+    // remove/add from CART-component
+    removeOneProduct(state, product) {
+      const index = state.cart.findIndex(obj => obj.id === product.id);
+
+      if (state.cart[index].quantity === 1) {
+        state.cart[index].splice(index, 1);
+      } else {
+        state.cart[index].quantity -= 1;
+      }
+    },
+    addOneProduct(state, product) {
+      const index = state.cart.findIndex(obj => obj.id === product.id);
+      state.cart[index].quantity += 1;
     }
   },
   actions: {
