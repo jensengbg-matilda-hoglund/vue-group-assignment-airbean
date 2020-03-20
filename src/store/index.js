@@ -14,8 +14,8 @@ export default new Vuex.Store({
       state.menu = newMenu;
     },
     orderStatus(state, data) {
-      // This function counts down the ETA every 60sec
       state.orderStatus = data;
+      // This function counts down the ETA every 60sec
       setInterval(() => {
         state.orderStatus.eta -= 1;
       }, 60000);
@@ -33,9 +33,9 @@ export default new Vuex.Store({
       } else {
         productObj.quantity = 1;
         productObj.totPrice = productObj.price;
+
         state.cart.push(productObj);
       }
-      console.log(state.cart);
     },
     // remove/add from CART-component
     removeOneProduct(state, product) {
