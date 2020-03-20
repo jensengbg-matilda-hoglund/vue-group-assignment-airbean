@@ -10,16 +10,17 @@ export default new Vuex.Store({
     orderStatus: ""
   },
   mutations: {
-    menu(state, data) {
-      state.menu = data;
+    setMenu(state, newMenu) {
+      state.menu = newMenu;
     },
     // When sending order this will recieve the data from server.
     // Use this to get data to OrderStatus view
     orderStatus(state, data) {
       state.orderStatus = data;
     },
-    cart(state, data) {
-      state.cart.push(data);
+    addToCart(state, product) {
+      console.log('addToCart')
+      state.cart.push(product);
     }
   },
   actions: {
@@ -32,7 +33,7 @@ export default new Vuex.Store({
         .then(response => response.json())
         .then(data => {
           if (data) {
-            ctx.commit("menu", data);
+            ctx.commit("setMenu", data['menu']);
             console.log(data);
           }
         })
