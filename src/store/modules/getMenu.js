@@ -1,6 +1,10 @@
 const getMenu = {
   state: { menu: [] },
-  mutations: {},
+  mutations: {
+    setMenu(state, newMenu) {
+      state.menu = newMenu;
+    }
+  },
   actions: {
     async getMenu(ctx) {
       const url = "http://localhost:5000/api/beans";

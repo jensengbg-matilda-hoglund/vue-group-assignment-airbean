@@ -49,10 +49,20 @@ export default {
       }
     },
     myProfile() {
-      if (this.$route.path !== "/profile") {
-        this.$router.push("/profile");
+      if (localStorage.getItem("uuid")) {
+        const uuid = JSON.parse(localStorage.getItem("uuid"));
+
+        if (this.$route.path !== "/profile") {
+          this.$router.push("/profile/" + uuid);
+        } else {
+          this.closeNav();
+        }
       } else {
-        this.closeNav();
+        if (this.$route.path !== "/profile") {
+          this.$router.push("/profile");
+        } else {
+          this.closeNav();
+        }
       }
     }
   }
