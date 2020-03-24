@@ -12,6 +12,8 @@
         <p @click="about">Vårt Kaffe</p>
         <span class="divider"></span>
         <p @click="orderStatus">Orderstatus</p>
+        <span class="divider"></span>
+        <p @click="myProfile">Min profil</p>
       </section>
     </section>
   </div>
@@ -23,8 +25,6 @@ export default {
     closeNav() {
       this.$emit("closeNav");
     },
-
-    // checking path to prevent "navigation duplicate" error.
     menu() {
       if (this.$route.path !== "/menu") {
         this.$router.push("/menu");
@@ -40,8 +40,17 @@ export default {
       }
     },
     orderStatus() {
-      if (this.$route.path !== "/order-status") {
-        this.$router.push("/order-status");
+      if (this.$store.state.noOrder === false) {
+        if (this.$route.path !== "/order-status") {
+          this.$router.push("/order-status");
+        } else {
+          this.closeNav();
+        }
+      }
+    },
+    myProfile() {
+      if (this.$route.path !== "/profile") {
+        this.$router.push("/profile");
       } else {
         this.closeNav();
       }
