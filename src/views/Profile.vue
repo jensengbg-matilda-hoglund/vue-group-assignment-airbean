@@ -119,6 +119,7 @@ export default {
 
 .nav-overlay {
   position: absolute;
+  z-index: 2;
   height: 106rem;
   background-color: $black;
 }
