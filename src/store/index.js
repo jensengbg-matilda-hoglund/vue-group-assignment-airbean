@@ -1,25 +1,20 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import postOrder from "./modules/postOrder";
+import getMenu from "./modules/getMenu";
+
+import profile from "./modules/getMenu";
+//import sendOrder from "./modules/sendOrder";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    menu: [],
-    cart: [],
-    orderStatus: ""
-  },
+  state: {},
   mutations: {
     setMenu(state, newMenu) {
       state.menu = newMenu;
     },
-    orderStatus(state, data) {
-      state.orderStatus = data;
-      // This function counts down the ETA every 60sec
-      setInterval(() => {
-        state.orderStatus.eta -= 1;
-      }, 60000);
-    },
+
     // addToCart from MENU-view
     addToCart(state, product) {
       const productObj = Object.assign({}, product);
@@ -50,36 +45,22 @@ export default new Vuex.Store({
     addOneProduct(state, product) {
       const index = state.cart.findIndex(obj => obj.id === product.id);
       state.cart[index].quantity += 1;
+    },
+    orderComplete(state) {
+      state.noOrder = true;
     }
   },
   actions: {
-    async getMenu(ctx) {
-      const url = "http://localhost:5000/api/beans";
+    async getUser(ctx, uuid) {
+      const url = "http://localhost:5000/api/user";
       fetch(url, {
         method: "GET",
+        body: uuid,
         headers: { "Content-Type": "application/json" }
       })
         .then(response => response.json())
         .then(data => {
           if (data) {
-            ctx.commit("setMenu", data["menu"]);
-            console.log(data);
-          }
-        })
-        .catch(error => {
-          console.error("Error:", error);
-        });
-    },
-    async sendOrder(ctx) {
-      const url = "http://localhost:5000/api/beans";
-      fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" }
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data) {
-            ctx.commit("orderStatus", data);
             console.log(data);
           }
         })
@@ -88,5 +69,9 @@ export default new Vuex.Store({
         });
     }
   },
-  modules: {}
+  modules: {
+    menu: getMenu,
+    order: postOrder,
+    getProfile: profile
+  }
 });

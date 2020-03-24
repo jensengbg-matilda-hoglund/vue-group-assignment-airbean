@@ -4,6 +4,7 @@ import Landing from "../views/Landing.vue";
 import About from "../views/About.vue";
 import Menu from "../views/Menu.vue";
 import OrderStatus from "../views/OrderStatus.vue";
+import Profile from "../views/Profile.vue";
 
 Vue.use(VueRouter);
 
@@ -27,11 +28,16 @@ const routes = [
     path: "/order-status",
     name: "OrderStatus",
     component: OrderStatus
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile
   }
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes
 });
