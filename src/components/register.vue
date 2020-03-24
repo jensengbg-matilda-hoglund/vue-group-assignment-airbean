@@ -18,6 +18,7 @@
 .register {
   display: flex;
   flex-direction: column;
+  align-self: center;
   color: $black;
   background: $latte;
   width: 34rem;

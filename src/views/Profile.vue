@@ -101,7 +101,7 @@ export default {
 
 .register {
   position: absolute;
-
+  z-index: 1;
   padding: 2rem;
   bottom: 28%;
 }
@@ -138,6 +138,7 @@ export default {
       flex-direction: column;
       margin-bottom: auto;
       font-family: $worksans;
+      padding: 0 1rem;
 
       .user {
         display: flex;
