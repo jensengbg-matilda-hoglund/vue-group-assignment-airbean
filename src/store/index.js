@@ -52,6 +52,7 @@ export default new Vuex.Store({
       state.cart[index].quantity += 1;
     }
   },
+  //two api interactions
   actions: {
     async getMenu(ctx) {
       const url = "http://localhost:5000/api/beans";

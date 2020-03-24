@@ -50,7 +50,7 @@ export default {
   methods: {
     openMenu() {},
     openCart() {
-      this.$router.push("/order-status");
+      this.$router.push("/cart");
     },
     addProductToCart(product) {
       this.$store.commit("addToCart", product);
