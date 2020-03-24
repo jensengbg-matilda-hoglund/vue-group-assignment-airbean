@@ -2,9 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import postOrder from "./modules/postOrder";
 import getMenu from "./modules/getMenu";
-
-import profile from "./modules/getMenu";
-//import sendOrder from "./modules/sendOrder";
+import profile from "./modules/getProfile";
 
 Vue.use(Vuex);
 
