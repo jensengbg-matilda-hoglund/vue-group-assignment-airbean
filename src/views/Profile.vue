@@ -69,6 +69,30 @@ export default {
           timeStamp: "24/03/20",
           cart: "not used",
           totalValue: "445"
+        },
+        {
+          orderNr: "aadfhf455gSA",
+          timeStamp: "24/03/20",
+          cart: "not used",
+          totalValue: "445"
+        },
+        {
+          orderNr: "aadfhf455gSA",
+          timeStamp: "24/03/20",
+          cart: "not used",
+          totalValue: "445"
+        },
+        {
+          orderNr: "aadfhf455gSA",
+          timeStamp: "24/03/20",
+          cart: "not used",
+          totalValue: "445"
+        },
+        {
+          orderNr: "aadfhf455gSA",
+          timeStamp: "24/03/20",
+          cart: "not used",
+          totalValue: "445"
         }
       ]
     };
@@ -108,7 +132,7 @@ export default {
 
 .profile {
   background: $latte;
-  height: 66.7rem;
+  min-height: 66.7rem;
   background-color: $black;
   background: url("../assets/graphics/graphics-header.svg") top no-repeat;
 
