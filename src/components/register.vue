@@ -7,7 +7,10 @@
     <input type="text" id="name" />
     <label for="email">Epost</label>
     <input type="text" id="email" />
-    <button class="radio" type="radio">GDPR Ok!</button>
+    <div class="gdpr">
+      <input type="radio" />
+      <p class="gdpr-text">GDPR Ok!</p>
+    </div>
     <button class="btn">Brew me a cup!</button>
   </div>
 </template>
