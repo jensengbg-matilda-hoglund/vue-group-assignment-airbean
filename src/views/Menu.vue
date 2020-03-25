@@ -69,7 +69,7 @@ export default {
       }
     },
     openCart() {
-      this.$router.push("/order-status");
+      this.$router.push("/cart");
     },
     addToCart(product) {
       this.$store.commit("addToCart", product);
