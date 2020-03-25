@@ -9,7 +9,7 @@
         </button>
         <!-- <cart /> -->
         <div class="ellipce">
-          <h3 class="quantity-ellipse">{{ $store.state.order.cart.length }}</h3>
+          <h3 class="quantity-ellipse">{{ $store.state.order.cart_counter }}</h3>
         </div>
         <button @click="openCart" class="cart-btn">
           <img src="../assets/graphics/bag.svg" />
@@ -69,11 +69,12 @@ export default {
       }
     },
     openCart() {
-      this.$router.push("/order-status");
+      // send order here until cart is done
+      this.$store.dispatch("sendOrder");
+      //this.$router.push("/order-status");
     },
     addToCart(product) {
       this.$store.commit("addToCart", product);
-      console.log(this.$store.state.order.cart);
     }
   }
 };
@@ -204,7 +205,9 @@ export default {
 }
 
 .p-prod-desc,
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
   color: $black;
   font-family: $PT;
