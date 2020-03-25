@@ -8,7 +8,7 @@
           <img src="../assets/graphics/navicon.svg" alt />
         </button>
       </div>
-      <!-- <Register v-if="displayRegister" class="register" /> -->
+      <Register v-if="displayRegister" class="register" />
       <section class="main">
         <section class="user">
           <img src="../assets/graphics/profile.svg" alt class="profile-img" />
@@ -40,17 +40,17 @@
 
 <script>
 import Nav from "../components/nav";
-// import Register from "../components/register";
+import Register from "../components/register";
 
 export default {
   components: {
-    Nav
-    // Register
+    Nav,
+    Register
   },
   data: () => {
     return {
       openNav: false,
-      // displayRegister: true,
+      displayRegister: true,
       orders: [
         {
           orderNr: "aadfhf455gSA",
@@ -107,9 +107,9 @@ export default {
     }
   },
   mounted() {
-    if (localStorage.getItem("uuid")) {
+    /*  if (localStorage.getItem("uuid")) {
       this.displayRegister = false;
-    }
+    } */
   },
   computed: {
     profile() {
