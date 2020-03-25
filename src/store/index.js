@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import postOrder from "./modules/postOrder";
 import getMenu from "./modules/getMenu";
 import getProfile from "./modules/getProfile";
+import getOrderHistory from "./modules/getOrderHistory";
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
   modules: {
     menu: getMenu,
     order: postOrder,
-    profile: getProfile
+    profile: getProfile,
+    orders: getOrderHistory
   }
 });
