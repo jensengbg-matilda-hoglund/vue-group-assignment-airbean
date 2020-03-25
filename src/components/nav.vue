@@ -74,7 +74,7 @@ export default {
 
 .nav-overlay {
   width: 37.5rem;
-  height: 100%;
+  // height: 100%;
 }
 
 .content {
