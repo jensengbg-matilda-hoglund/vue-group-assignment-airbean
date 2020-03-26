@@ -3,13 +3,13 @@ const postUser = {
     uuid: ""
   },
   mutations: {
-    // response from GET-request goes here
+    saveUser(state, user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    }
   },
   actions: {
     async registerUser(ctx, user) {
-      const uuid = JSON.parse(localStorage.getItem("uuid"));
       user.uuid = JSON.parse(localStorage.getItem("uuid"));
-      console.log(user);
 
       const url = "http://localhost:5000/api/beans/user";
       fetch(url, {
@@ -21,6 +21,7 @@ const postUser = {
         .then(data => {
           if (data) {
             console.log(data);
+            ctx.commit("saveUser", data);
           }
         })
         .catch(error => {

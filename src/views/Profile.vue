@@ -113,12 +113,11 @@ export default {
   },
   computed: {
     profile() {
-      return this.$store.state.profile.uuid;
+      //return this.$store.state.profile.uuid;
     }
   },
   created() {
-    this.$store.dispatch("getProfile");
-    this.$store.dispatch("getOrderHistory");
+    //this.$store.dispatch("getOrderHistory");
   }
 };
 </script>

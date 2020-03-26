@@ -70,7 +70,14 @@ export default {
     },
     openCart() {
       // send order here until cart is done
-      this.$store.dispatch("sendOrder");
+      if (localStorage.getItem("user")) {
+        const url = "http://localhost:5000/api/beans/userOrder";
+        this.$store.dispatch("sendOrder", url);
+      } else {
+        const url = "http://localhost:5000/api/beans/unregOrder";
+        this.$store.dispatch("sendOrder", url);
+      }
+
       //this.$router.push("/order-status");
     },
     addToCart(product) {

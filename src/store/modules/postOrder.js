@@ -7,6 +7,8 @@ const postOrder = {
   mutations: {
     orderStatus(state, order) {
       state.orderStatus = order;
+      state.cart = [];
+      state.cart_counter = 0;
       this.commit("countdown", order.eta);
     },
     countdown(state, eta) {
@@ -66,7 +68,7 @@ const postOrder = {
     }
   },
   actions: {
-    async sendOrder({ commit, state }) {
+    async sendOrder({ commit, state }, url) {
       const dateObj = new Date();
       const month = dateObj.getUTCMonth() + 1;
       const day = dateObj.getUTCDate();
@@ -85,8 +87,7 @@ const postOrder = {
         cart: state.cart,
         totalValue: sum
       };
-      console.log(order);
-      const url = "http://localhost:5000/api/beans";
+
       fetch(url, {
         method: "POST",
         body: JSON.stringify(order),

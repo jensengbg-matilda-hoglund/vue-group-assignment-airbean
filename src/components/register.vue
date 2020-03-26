@@ -26,7 +26,6 @@ export default {
   methods: {
     registerUser() {
       const user = { name: this.name, email: this.email };
-
       this.$store.dispatch("registerUser", user);
     }
   }
