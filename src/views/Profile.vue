@@ -63,39 +63,12 @@ export default {
           timeStamp: "24/03/20",
           cart: "not used",
           totalValue: "445"
-        },
-        {
-          orderNr: "aadfhf455gSA",
-          timeStamp: "24/03/20",
-          cart: "not used",
-          totalValue: "445"
-        },
-        {
-          orderNr: "aadfhf455gSA",
-          timeStamp: "24/03/20",
-          cart: "not used",
-          totalValue: "445"
-        },
-        {
-          orderNr: "aadfhf455gSA",
-          timeStamp: "24/03/20",
-          cart: "not used",
-          totalValue: "445"
-        },
-        {
-          orderNr: "aadfhf455gSA",
-          timeStamp: "24/03/20",
-          cart: "not used",
-          totalValue: "445"
-        },
-        {
-          orderNr: "aadfhf455gSA",
-          timeStamp: "24/03/20",
-          cart: "not used",
-          totalValue: "445"
         }
       ]
     };
+  },
+  computed: {
+    // hämta orderHistorik här
   },
   methods: {
     nav() {
@@ -107,9 +80,17 @@ export default {
     }
   },
   mounted() {
-    if (localStorage.getItem("uuid")) {
+    /*  if (localStorage.getItem("uuid")) {
       this.displayRegister = false;
+    } */
+  },
+  computed: {
+    profile() {
+      //return this.$store.state.profile.uuid;
     }
+  },
+  created() {
+    //this.$store.dispatch("getOrderHistory");
   }
 };
 </script>

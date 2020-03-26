@@ -1,24 +1,22 @@
-const getProfile = {
-  state: {
-    uuid: ""
-  },
+const getUuid = {
+  state: {},
   mutations: {
-    // response from GET-request goes here
+    saveUuid(state, data) {
+      localStorage.setItem("uuid", JSON.stringify(data.key));
+    }
   },
   actions: {
-    // API: GET uuid goes here
-
-    async getUser(ctx, uuid) {
-      const url = "http://localhost:5000/api/user";
+    async getUuid(ctx) {
+      const url = "http://localhost:5000/api/beans/key";
       fetch(url, {
         method: "GET",
-        body: uuid,
         headers: { "Content-Type": "application/json" }
       })
         .then(response => response.json())
         .then(data => {
           if (data) {
             console.log(data);
+            ctx.commit("saveUuid", data);
           }
         })
         .catch(error => {
@@ -28,4 +26,4 @@ const getProfile = {
   }
 };
 
-export default getProfile;
+export default getUuid;

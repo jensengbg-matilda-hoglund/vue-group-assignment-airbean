@@ -9,7 +9,7 @@
         </button>
         <!-- <cart /> -->
         <div class="ellipce">
-          <h3 class="quantity-ellipse">{{ $store.state.order.cart.length }}</h3>
+          <h3 class="quantity-ellipse">{{ $store.state.order.cart_counter }}</h3>
         </div>
         <button @click="openCart" class="cart-btn">
           <img src="../assets/graphics/bag.svg" />
@@ -69,11 +69,19 @@ export default {
       }
     },
     openCart() {
-      this.$router.push("/cart");
+      // send order here until cart is done
+      if (localStorage.getItem("user")) {
+        const url = "http://localhost:5000/api/beans/userOrder";
+        this.$store.dispatch("sendOrder", url);
+      } else {
+        const url = "http://localhost:5000/api/beans/unregOrder";
+        this.$store.dispatch("sendOrder", url);
+      }
+
+      //this.$router.push("/order-status");
     },
     addToCart(product) {
       this.$store.commit("addToCart", product);
-      console.log(this.$store.state.order.cart);
     }
   }
 };
@@ -204,7 +212,9 @@ export default {
 }
 
 .p-prod-desc,
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
   color: $black;
   font-family: $PT;

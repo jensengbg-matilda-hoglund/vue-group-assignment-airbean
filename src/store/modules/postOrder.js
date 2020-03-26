@@ -1,11 +1,14 @@
 const postOrder = {
   state: {
     orderStatus: { orderNr: "", eta: "" },
-    cart: []
+    cart: [],
+    cart_counter: 0
   },
   mutations: {
     orderStatus(state, order) {
       state.orderStatus = order;
+      state.cart = [];
+      state.cart_counter = 0;
       this.commit("countdown", order.eta);
     },
     countdown(state, eta) {
@@ -31,9 +34,8 @@ const postOrder = {
     // addToCart from MENU-view
     addToCart(state, product) {
       const productObj = Object.assign({}, product);
-      // check if product is in cart, if it is in cart, add +1 to quantity and set new total price.
-      if (state.cart.includes(product)) {
-        const index = state.cart.findIndex(obj => obj.id === productObj.id);
+      const index = state.cart.findIndex(obj => obj.id === productObj.id);
+      if (index != -1) {
         const price = state.cart[index].price;
 
         state.cart[index].quantity += 1;
@@ -44,6 +46,9 @@ const postOrder = {
 
         state.cart.push(productObj);
       }
+
+      state.cart_counter++;
+      console.log(state.cart);
     },
     // remove/add from CART-component
     removeOneProduct(state, product) {
@@ -54,24 +59,24 @@ const postOrder = {
       } else {
         state.cart[index].quantity -= 1;
       }
+      state.cart_counter--;
     },
     addOneProduct(state, product) {
       const index = state.cart.findIndex(obj => obj.id === product.id);
       state.cart[index].quantity += 1;
+      state.cart_counter++;
     }
   },
   actions: {
-    async sendOrder(ctx) {
+    async sendOrder({ commit, state }, url) {
       const dateObj = new Date();
       const month = dateObj.getUTCMonth() + 1;
       const day = dateObj.getUTCDate();
       const year = dateObj.getUTCFullYear();
       const date = year + "/" + month + "/" + day;
 
-      const cart = JSON.parse(localStorage.getItem("cart"));
-
       let sum = 0;
-      this.state.cart.forEach(obj => {
+      state.cart.forEach(obj => {
         sum += obj.totPrice;
       });
 
@@ -79,11 +84,10 @@ const postOrder = {
       let order = {
         orderNr: "set this in database",
         timeStamp: date,
-        cart: cart,
+        cart: state.cart,
         totalValue: sum
       };
 
-      const url = "http://localhost:5000/api/beans";
       fetch(url, {
         method: "POST",
         body: JSON.stringify(order),
@@ -92,7 +96,8 @@ const postOrder = {
         .then(response => response.json())
         .then(data => {
           if (data) {
-            ctx.commit("orderStatus", data);
+            commit("orderStatus", data);
+            state.cart_counter = 0;
             console.log(data);
           }
         })
