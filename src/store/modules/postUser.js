@@ -11,7 +11,7 @@ const postUser = {
       user.uuid = JSON.parse(localStorage.getItem("uuid"));
       console.log(user);
 
-      const url = "http://localhost:5000/api/beans/user";
+      const url = "http://localhost:5000/api/users";
       fetch(url, {
         method: "POST",
         body: JSON.stringify(user),
