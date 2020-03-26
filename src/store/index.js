@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import postOrder from "./modules/postOrder";
 import getMenu from "./modules/getMenu";
-import getProfile from "./modules/getProfile";
+import getUuid from "./modules/getUuid";
 import getOrderHistory from "./modules/getOrderHistory";
 import postUser from "./modules/postUser";
 
@@ -15,8 +15,7 @@ export default new Vuex.Store({
   modules: {
     menu: getMenu,
     order: postOrder,
-    profile: getProfile,
-
+    uuid: getUuid,
     orders: getOrderHistory,
     register: postUser
   }
