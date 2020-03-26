@@ -11,7 +11,7 @@ const postUser = {
     async registerUser(ctx, user) {
       user.uuid = JSON.parse(localStorage.getItem("uuid"));
 
-      const url = "http://localhost:5000/api/beans/user";
+      const url = "http://localhost:5000/api/users";
       fetch(url, {
         method: "POST",
         body: JSON.stringify(user),
