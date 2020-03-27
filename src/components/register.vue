@@ -36,7 +36,7 @@ export default {
       ) {
         const user = { name: this.name, email: this.email };
         this.$store.dispatch("registerUser", user);
-      }
+      // }
     }
   }
 };
@@ -83,6 +83,18 @@ export default {
     margin: 0.5rem 0 1.5rem 0;
   }
 
+  .checkbox-input {
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid $black;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+  //it doesn't work
+  // .checkbox-input:checked {
+  //   background-color: $green;
+  // }
+ 
   .gdpr {
     display: flex;
     align-items: center;
