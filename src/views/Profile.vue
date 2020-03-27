@@ -8,7 +8,7 @@
           <img src="../assets/graphics/navicon.svg" alt />
         </button>
       </div>
-      <Register v-if="displayRegister" class="register" />
+      <Register v-if="this.$store.state.register.user === '' " class="register" />
       <section class="main">
         <section class="user">
           <img src="../assets/graphics/profile.svg" alt class="profile-img" />
@@ -49,12 +49,19 @@ export default {
   },
   data: () => {
     return {
-      openNav: false,
-      displayRegister: true,
+      openNav: false
     };
   },
   computed: {
-    // hämta orderHistorik här
+    user() {
+      return this.$store.state.register.user;
+    }
+  },
+  watch: {
+    user() {
+      console.log("im in profile");     
+  },
+  computed: {
     orders() {
       return this.$store.state.orders.orders;
     },
@@ -71,10 +78,10 @@ export default {
       }
     }
   },
-  mounted() {
-    if (localStorage.getItem("uuid")) {
-      this.displayRegister = false;
-    } 
+  computed: {
+    profile() {
+      //return this.$store.state.profile.uuid;
+    }
   },
   created() {
     this.$store.dispatch("getOrderHistory");
