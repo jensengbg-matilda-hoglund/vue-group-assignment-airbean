@@ -14,10 +14,21 @@
       <div class="wrapper">
         <h1>Din beställning</h1>
       <strong class="counter">{{ $store.state.order.cart_counter }}</strong>
-    <img @click="addOneProduct" class="arrow" src="@/assets/graphics/arrow-up.svg">
+   <div class="prod" v-for="product in menu" :key="product.id">
+        <div class="product-title">
+          <h2>
+            {{ product.title }}
+            <!-- <span></span> -->
+          </h2>
+        </div>
+        <div class="product-price">
+          <h2>{{ product.price }}kr</h2>
+        </div>
+      </div>
+          <img @click="addOneProduct" class="arrow" src="@/assets/graphics/arrow-up.svg">
     <br>
     <img class="arrow" src="@/assets/graphics/arrow-down.svg">
-      </div>
+   </div>
   </div>
 </template>
 
@@ -51,8 +62,8 @@ export default {
   openCart() {
       this.$router.push("/menu");
     },
-  addOneProduct() {
-    this.$store.state.cart_counter.commit("addOneProduct");
+  addOneProduct(state) {
+    this.$store.state.cart.commit("addOneProduct");
     }
   }
 }
