@@ -53,15 +53,6 @@ export default {
     };
   },
   computed: {
-    user() {
-      return this.$store.state.register.user;
-    }
-  },
-  watch: {
-    user() {
-      console.log("im in profile");     
-  },
-  computed: {
     orders() {
       return this.$store.state.orders.orders;
     },
@@ -69,6 +60,7 @@ export default {
       return this.$store.state.profile.uuid;
     }
   },
+
   methods: {
     nav() {
       if (this.openNav === true) {
@@ -78,11 +70,7 @@ export default {
       }
     }
   },
-  computed: {
-    profile() {
-      //return this.$store.state.profile.uuid;
-    }
-  },
+
   created() {
     this.$store.dispatch("getOrderHistory");
   }

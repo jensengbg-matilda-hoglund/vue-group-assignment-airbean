@@ -8,7 +8,7 @@
     <label class="text-label" for="email">Epost</label>
     <input class="text-input" v-model="email" type="text" id="email" />
     <div class="gdpr">
-      <input v-model="gdprChecked" class="checkbox-input" type="radio" />
+      <input v-model="gdprChecked" class="checkbox-input" type="checkbox" />
       <p class="gdpr-text">GDPR Ok!</p>
     </div>
     <button @click="registerUser" class="btn">Brew me a cup!</button>
@@ -31,7 +31,10 @@ export default {
         this.name.length > 0 &&
         this.email.includes("@") === true &&
         this.gdprChecked === true
-      ) {     
+      ) {
+        const user = { name: this.name, email: this.email };
+        this.$store.dispatch("registerUser", user);
+      }
     }
   }
 };
@@ -89,13 +92,13 @@ export default {
   // .checkbox-input:checked {
   //   background-color: $green;
   // }
- 
+
   .gdpr {
     display: flex;
     align-items: center;
     margin: 2rem 0;
     height: 1rem;
-    
+
     .gdpr-text {
       margin: 0 0.5rem;
     }
