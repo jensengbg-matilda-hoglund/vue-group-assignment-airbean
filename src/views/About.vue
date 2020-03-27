@@ -118,6 +118,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         margin-top: 2rem;
+        height: 12rem;
 
         .author-img {
           border-radius: 100%;
@@ -126,6 +127,7 @@ export default {
         .name {
           font-size: 2.2rem;
           font-family: $PT;
+          align-self: inherit;
         }
 
         .role {
