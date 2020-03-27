@@ -1,10 +1,11 @@
 const postUser = {
   state: {
-    uuid: ""
+    user: ""
   },
   mutations: {
     saveUser(state, user) {
       localStorage.setItem("user", JSON.stringify(user));
+      state.user = user;
     }
   },
   actions: {

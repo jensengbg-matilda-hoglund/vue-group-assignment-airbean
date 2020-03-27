@@ -24,9 +24,14 @@ export default {
       gdprChecked: false
     };
   },
+
   methods: {
     registerUser() {
-      if (this.gdprChecked === true) {
+      if (
+        this.name.length > 0 &&
+        this.email.includes("@") === true &&
+        this.gdprChecked === true
+      ) {
         const user = { name: this.name, email: this.email };
         this.$store.dispatch("registerUser", user);
       }
