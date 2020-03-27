@@ -19,11 +19,11 @@
           <h1>Orderhistorik</h1>
           <li v-for="(order, index) in orders" :key="index" class="order-list">
             <div class="left">
-              <p class="order-nr">#{{order.orderNr}}</p>
+              <p class="order-nr">#{{order.uuid}}</p>
               <p class="total">total delsumma</p>
             </div>
             <div class="right">
-              <p class="date">{{order.timeStamp}}</p>
+              <p class="date">{{order.created}}</p>
               <p class="totalsum">{{order.totalValue}} Kr</p>
             </div>
           </li>
@@ -49,21 +49,7 @@ export default {
   },
   data: () => {
     return {
-      openNav: false,
-      orders: [
-        {
-          orderNr: "aadfhf455gSA",
-          timeStamp: "24/03/20",
-          cart: "not used",
-          totalValue: "445"
-        },
-        {
-          orderNr: "aadfhf455gSA",
-          timeStamp: "24/03/20",
-          cart: "not used",
-          totalValue: "445"
-        }
-      ]
+      openNav: false
     };
   },
   computed: {
@@ -73,7 +59,14 @@ export default {
   },
   watch: {
     user() {
-      console.log("im in profile");
+      console.log("im in profile");     
+  },
+  computed: {
+    orders() {
+      return this.$store.state.orders.orders;
+    },
+    profile() {
+      return this.$store.state.profile.uuid;
     }
   },
   methods: {
@@ -91,7 +84,7 @@ export default {
     }
   },
   created() {
-    //this.$store.dispatch("getOrderHistory");
+    this.$store.dispatch("getOrderHistory");
   }
 };
 </script>
@@ -102,7 +95,7 @@ export default {
 .nav-overlay {
   position: absolute;
   z-index: 2;
-  height: 106rem;
+  // height: 106rem;
   background-color: $black;
 }
 
@@ -110,7 +103,7 @@ export default {
   position: absolute;
   z-index: 1;
   padding: 2rem;
-  bottom: 28%;
+  bottom: 29%;
 }
 
 .profile {
@@ -120,7 +113,6 @@ export default {
   background: url("../assets/graphics/graphics-header.svg") top no-repeat;
 
   .content {
-    padding: 1.6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -145,7 +137,7 @@ export default {
       flex-direction: column;
       margin-bottom: auto;
       font-family: $worksans;
-      padding: 0 1rem;
+      padding: 0 2rem;
 
       .user {
         display: flex;
@@ -170,6 +162,7 @@ export default {
       .history {
         display: flex;
         flex-direction: column;
+        padding: 1rem;
 
         h1 {
           font-size: 2.2rem;

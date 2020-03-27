@@ -69,6 +69,14 @@ export default {
       }
     },
     openCart() {
+      // if (localStorage.getItem("user")) {
+      //   const url = "http://localhost:5000/api/beans/userOrder";
+      //   this.$store.dispatch("sendOrder", url);
+      // } else {
+      //   const url = "http://localhost:5000/api/beans/unregOrder";
+      //   this.$store.dispatch("sendOrder", url);
+      // }
+
       // send order here until cart is done
       // added this so we can change send order btn until responds comes back
       // due to the added delay of 2seconds in backend.

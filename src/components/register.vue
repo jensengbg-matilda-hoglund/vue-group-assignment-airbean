@@ -8,7 +8,7 @@
     <label class="text-label" for="email">Epost</label>
     <input class="text-input" v-model="email" type="text" id="email" />
     <div class="gdpr">
-      <input v-model="gdprChecked" class="checkbox-input" type="checkbox" />
+      <input v-model="gdprChecked" class="checkbox-input" type="radio" />
       <p class="gdpr-text">GDPR Ok!</p>
     </div>
     <button @click="registerUser" class="btn">Brew me a cup!</button>
@@ -31,10 +31,7 @@ export default {
         this.name.length > 0 &&
         this.email.includes("@") === true &&
         this.gdprChecked === true
-      ) {
-        const user = { name: this.name, email: this.email };
-        this.$store.dispatch("registerUser", user);
-      }
+      ) {     
     }
   }
 };
@@ -50,7 +47,7 @@ export default {
   color: $black;
   background: $latte;
   width: 34rem;
-  height: 57rem;
+  height: 56rem;
   border-radius: 3px;
 
   .headline {
@@ -81,10 +78,24 @@ export default {
     margin: 0.5rem 0 1.5rem 0;
   }
 
+  .checkbox-input {
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid $black;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+  //it doesn't work
+  // .checkbox-input:checked {
+  //   background-color: $green;
+  // }
+ 
   .gdpr {
     display: flex;
     align-items: center;
     margin: 2rem 0;
+    height: 1rem;
+    
     .gdpr-text {
       margin: 0 0.5rem;
     }
@@ -97,7 +108,7 @@ export default {
     font-family: $PT;
     font-weight: 600;
     padding: 10px 28px;
-    margin-top: 5rem;
+    margin-top: 2rem;
     border: none;
     border-radius: 50px;
   }
