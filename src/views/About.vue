@@ -53,16 +53,15 @@ export default {
 
 .nav-overlay {
   position: absolute;
-  height: 106rem;
+  height: 100rem;
   background-color: $black;
 }
 
 .about {
   background: $latte;
-  height: 106rem;
+  height: 100rem;
 
   .content {
-    padding: 1.6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,7 +85,7 @@ export default {
     }
 
     .main {
-      padding: 1.6rem;
+      padding: 3.2rem;
       display: flex;
       flex-direction: column;
       margin-bottom: auto;
@@ -95,6 +94,7 @@ export default {
         font-size: 4.2rem;
         font-family: $PT;
         margin: 1rem 0;
+        align-self: flex-start;
       }
 
       .ingress {
