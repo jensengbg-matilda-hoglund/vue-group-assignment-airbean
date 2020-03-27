@@ -13,7 +13,7 @@
     </section>
       <div class="wrapper">
         <h1>Din beställning</h1>
-      <strong class="counter">{{ appCounter }}</strong>
+      <strong class="counter">{{ $store.state.order.cart_counter }}</strong>
     <img @click="addOneProduct" class="arrow" src="@/assets/graphics/arrow-up.svg">
     <br>
     <img class="arrow" src="@/assets/graphics/arrow-down.svg">
@@ -22,7 +22,12 @@
 </template>
 
 <script>
-import {mapState, mapMutations, mapActions} from 'vuex'
+import getMenu from "../store/modules/getMenu"
+import getOrderHistory from "../store/modules/getOrderHistory"
+import getUuid from "../store/modules/getUuid"
+import postOrder from "../store/modules/postOrder"
+import postUser from "../store/modules/postUser"
+import {mapState, mapMutations, mapActions, mapGetters} from 'vuex'
 
 export default {
     name: 'Cart',
@@ -35,14 +40,19 @@ export default {
         ...mapState(["menu", "cart", "orderStatus"]),
         appCounter: function() {
             return this.$store.getters.getCounter
-        }
+        },
+        ...mapGetters({
+          cart: state => state.cart,
+          order: state => state.orders,
+          user: state => state.uuid
+        })
     },
     methods: {
   openCart() {
       this.$router.push("/menu");
     },
   addOneProduct() {
-    this.addOneProduct.$store();
+    this.$store.state.cart_counter.commit("addOneProduct");
     }
   }
 }
