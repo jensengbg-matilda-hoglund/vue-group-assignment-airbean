@@ -75,6 +75,7 @@ export default {
       return totalDelsumma;
     }
   },
+
   methods: {
     nav() {
       if (this.openNav === true) {
