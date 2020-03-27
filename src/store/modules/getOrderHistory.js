@@ -7,9 +7,10 @@ const getOrderHistory = {
   },
   actions: {
     async getOrderHistory(ctx) {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const uuid = user.uuid;
-      const url = `http://localhost:5000/api/beans/profile/${uuid}`;
+      const uuid = localStorage.getItem("uuid");
+      console.log(uuid)
+      // const uuid = user.uuid;
+      const url = `http://localhost:5000/api/users/${uuid}/orders`;
       fetch(url, {
         method: "GET",
         headers: { "Content-Type": "application/json" }
@@ -17,7 +18,7 @@ const getOrderHistory = {
         .then(response => response.json())
         .then(data => {
           if (data) {
-            ctx.commit("setOrderHistory", data["orders"]);
+            ctx.commit("setOrderHistory", data);
             console.log(data);
           }
         })

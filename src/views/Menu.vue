@@ -69,14 +69,17 @@ export default {
       }
     },
     openCart() {
+      // if (localStorage.getItem("user")) {
+      //   const url = "http://localhost:5000/api/beans/userOrder";
+      //   this.$store.dispatch("sendOrder", url);
+      // } else {
+      //   const url = "http://localhost:5000/api/beans/unregOrder";
+      //   this.$store.dispatch("sendOrder", url);
+      // }
+
       // send order here until cart is done
-      if (localStorage.getItem("user")) {
-        const url = "http://localhost:5000/api/beans/userOrder";
-        this.$store.dispatch("sendOrder", url);
-      } else {
-        const url = "http://localhost:5000/api/beans/unregOrder";
-        this.$store.dispatch("sendOrder", url);
-      }
+      const url = "http://localhost:5000/api/orders";
+      this.$store.dispatch("sendOrder", url);
 
       //this.$router.push("/order-status");
     },

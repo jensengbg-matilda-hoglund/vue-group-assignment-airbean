@@ -2,7 +2,7 @@ const getUuid = {
   state: {},
   mutations: {
     saveUuid(state, data) {
-      localStorage.setItem("uuid", JSON.stringify(data.key));
+      localStorage.setItem("uuid", data.key);
     }
   },
   actions: {

@@ -81,11 +81,14 @@ const postOrder = {
       });
 
       // model for saving data with uuid in database
+      const userUuid = localStorage.getItem("uuid");
+      console.log(userUuid)
       let order = {
-        orderNr: "set this in database",
-        timeStamp: date,
+        uuid: "set this in database",
+        created: date,
         cart: state.cart,
-        totalValue: sum
+        totalValue: sum,
+        userUuid: userUuid
       };
 
       fetch(url, {
