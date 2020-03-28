@@ -2,10 +2,9 @@
   <div class="main">
       <section class="upp">
       <!-- <nav class="nav"/> -->
-      <button @click="openMenu" class="menu-btn">
+      <button @click="nav" class="nav-btn">
         <img src="../assets/graphics/navicon.svg" />
       </button>
-
       <!-- <cart /> -->
       <button @click="openCart" class="cart-btn">
         <img src="../assets/graphics/bag.svg" />
@@ -13,21 +12,22 @@
     </section>
       <div class="wrapper">
         <h1>Din beställning</h1>
-      <strong class="counter">{{ $store.state.order.cart_counter }}</strong>
-   <div class="prod" v-for="product in menu" :key="product.id">
+   <li class="order" v-for="product in menu" :key="product.id">
         <div class="product-title">
           <h2>
             {{ product.title }}
             <!-- <span></span> -->
           </h2>
         </div>
+        <br>
         <div class="product-price">
-          <h2>{{ product.price }}kr</h2>
+          <p>{{ product.price * product.quantity }}kr</p>
         </div>
-      </div>
-          <img @click="addOneProduct" class="arrow" src="@/assets/graphics/arrow-up.svg">
+            <img @click="addOneProduct" class="arrow" src="@/assets/graphics/arrow-up.svg">
+            <strong class="arrow"> {{ $store.state.order.cart_counter }}</strong>
+            <img class="arrow" src="@/assets/graphics/arrow-down.svg">
+      </li>
     <br>
-    <img class="arrow" src="@/assets/graphics/arrow-down.svg">
    </div>
   </div>
 </template>
@@ -38,10 +38,14 @@ import getOrderHistory from "../store/modules/getOrderHistory"
 import getUuid from "../store/modules/getUuid"
 import postOrder from "../store/modules/postOrder"
 import postUser from "../store/modules/postUser"
+import Nav from "../components/nav";
+
 import {mapState, mapMutations, mapActions, mapGetters} from 'vuex'
 
 export default {
     name: 'Cart',
+    components: {Nav
+    },
     data() {
         return {
             
@@ -59,6 +63,13 @@ export default {
         })
     },
     methods: {
+      nav() {
+      if (this.openNav === true) {
+        this.openNav = false;
+      } else {
+        this.openNav = true;
+      }
+    },
   openCart() {
       this.$router.push("/menu");
     },
@@ -101,6 +112,16 @@ border-radius: 3px;
   background-color: $black;
   border-color: $black;
 }
+.nav-overlay {
+  position: absolute;
+}
+.nav-btn {
+        height: 4.8rem;
+        width: 4.8rem;
+        border-radius: 100%;
+        border: none;
+        cursor: pointer;
+      }
 .cart-btn img {
   width: 1.6rem;
   height: 2.1rem;
