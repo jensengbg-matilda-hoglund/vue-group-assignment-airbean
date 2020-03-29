@@ -72,14 +72,17 @@ export default {
       // send order here until cart is done
       // added this so we can change send order btn until responds comes back
       // due to the added delay of 2seconds in backend.
+      
       let promise = new Promise(resolve => {
-        if (localStorage.getItem("user")) {
-          const url = "http://localhost:5000/api/beans/userOrder";
-          resolve(this.$store.dispatch("sendOrder", url));
-        } else {
-          const url = "http://localhost:5000/api/beans/unregOrder";
-          resolve(this.$store.dispatch("sendOrder", url));
-        }
+        const url = "http://localhost:5000/api/orders/";
+        this.$store.dispatch("sendOrder", url);
+        // if (localStorage.getItem("user")) {
+        //   const url = "http://localhost:5000/api/beans/userOrder";
+        //   resolve(this.$store.dispatch("sendOrder", url));
+        // } else {
+        //   const url = "http://localhost:5000/api/beans/unregOrder";
+        //   resolve(this.$store.dispatch("sendOrder", url));
+        // }
       });
       promise.then(() => {
         this.$router.push("/order-status");

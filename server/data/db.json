@@ -1,27 +1,70 @@
 {
   "users": [
     {
-      "uuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a",
-      "name": "Berntsson",
-      "email": "gusmatho@student.gu.se"
+      "uuid": "3bc5abf7-2ce5-467e-9877-70b8c0f8c96e",
+      "name": "kophulgugu",
+      "email": "dgrae@mail.com"
     }
   ],
   "orders": [
     {
-      "uuid": "set this in database",
-      "created": "2020/3/27",
+      "uuid": "49361e06-030a-417e-8000-2ee64b206fc3",
+      "orderNr": "AB1585502512559Y",
+      "created": "2020/3/29",
       "cart": [
+        {
+          "id": 2,
+          "title": "Caffè Doppio",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 2,
+          "totPrice": 98
+        },
         {
           "id": 1,
           "title": "Bryggkaffe",
           "desc": "Bryggd på månadens bönor.",
           "price": 39,
-          "quantity": 2,
-          "totPrice": 78
+          "quantity": 1,
+          "totPrice": 39
         }
       ],
-      "totalValue": 78,
-      "userUuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a"
+      "totalValue": 137,
+      "userUuid": "\"8990caa0-63a6-4391-9d49-3c3d5a925b70\""
+    },
+    {
+      "uuid": "2e95f0a7-c5a0-496b-a04a-379f01a2767b",
+      "orderNr": "AB1585502535939X",
+      "created": "2020/3/29",
+      "cart": [
+        {
+          "id": 4,
+          "title": "Latte Macchiato",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 2,
+          "totPrice": 98
+        }
+      ],
+      "totalValue": 98,
+      "userUuid": "3bc5abf7-2ce5-467e-9877-70b8c0f8c96e"
+    },
+    {
+      "uuid": "4e329293-220c-4e69-b614-8c7961ffd150",
+      "orderNr": "AB1585502557734Y",
+      "created": "2020/3/29",
+      "cart": [
+        {
+          "id": 3,
+          "title": "Cappuccino",
+          "desc": "Bryggd på förra månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        }
+      ],
+      "totalValue": 49,
+      "userUuid": "3bc5abf7-2ce5-467e-9877-70b8c0f8c96e"
     }
   ]
 }

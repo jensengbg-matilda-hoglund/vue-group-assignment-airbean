@@ -82,9 +82,9 @@ const postOrder = {
 
       // model for saving data with uuid in database
       const userUuid = localStorage.getItem("uuid");
-      console.log(userUuid)
+  
       let order = {
-        uuid: "set this in database",
+        orderNr: state.orderNr,
         created: date,
         cart: state.cart,
         totalValue: sum,
@@ -101,7 +101,17 @@ const postOrder = {
           if (data) {
             commit("orderStatus", data);
             state.cart_counter = 0;
-            console.log(data);
+
+            // save orders of unregistered users
+            if (data.userUuid == null) {
+              let localOrders = JSON.parse(localStorage.getItem("orders"));
+              if (localOrders == null) {
+                localOrders = [];
+              }
+              localOrders.push(data.uuid);
+              localStorage.setItem("orders", JSON.stringify(localOrders));
+              let test = JSON.parse(localStorage.getItem("orders"));
+            }
           }
         })
         .catch(error => {
