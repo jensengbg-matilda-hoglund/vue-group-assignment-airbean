@@ -8,8 +8,6 @@ const getOrderHistory = {
   actions: {
     async getOrderHistory(ctx) {
       const uuid = localStorage.getItem("uuid");
-      console.log(uuid)
-      // const uuid = user.uuid;
       const url = `http://localhost:5000/api/users/${uuid}/orders`;
       fetch(url, {
         method: "GET",

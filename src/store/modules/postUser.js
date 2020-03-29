@@ -11,8 +11,6 @@ const postUser = {
   actions: {
     async registerUser(ctx, user) {
       user.uuid = localStorage.getItem("uuid");
-      console.log(user)
-
       const url = "http://localhost:5000/api/users";
       fetch(url, {
         method: "POST",

@@ -75,7 +75,6 @@ export default {
       return totalDelsumma;
     }
   },
-
   methods: {
     nav() {
       if (this.openNav === true) {
@@ -85,7 +84,14 @@ export default {
       }
     }
   },
+  mounted() {
+    if (localStorage.getItem("uuid")) {
+      this.displayRegister = false;
+    }
+  },
   created() {
+    // save user in store from ls
+    this.$store.commit("saveUser", JSON.parse(localStorage.getItem("user")));
     this.$store.dispatch("getOrderHistory");
 
     // save user in store from ls
@@ -103,38 +109,32 @@ export default {
   // height: 106rem;
   background-color: $black;
 }
-
 .register {
   position: absolute;
   z-index: 1;
   padding: 2rem;
   bottom: 29%;
 }
-
 li {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 li:last-child {
   border-bottom: 0;
 }
-
 .profile {
   background: $latte;
   min-height: 66.7rem;
   background-color: $black;
   background: url("../assets/graphics/graphics-header.svg") top no-repeat;
-
   .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
     width: 100%;
-
     .header {
       display: flex;
       margin-bottom: 6rem;
-
       .nav-btn {
         height: 4.8rem;
         width: 4.8rem;
@@ -143,21 +143,18 @@ li:last-child {
         cursor: pointer;
       }
     }
-
     .main {
       display: flex;
       flex-direction: column;
       margin-bottom: auto;
       font-family: $worksans;
       padding: 0 2rem;
-
       .user {
         display: flex;
         flex-direction: column;
         color: $white;
         align-items: center;
         margin-bottom: 6rem;
-
         .user-name {
           align-self: center;
           font-size: 2.4rem;
@@ -166,18 +163,15 @@ li:last-child {
           margin: 2rem 0 0.5rem 0;
           color: $white;
         }
-
         .user-email {
           font-size: 1.4rem;
           opacity: 0.8;
         }
       }
-
       .history {
         display: flex;
         flex-direction: column;
         padding: 1rem;
-
         h1 {
           font-size: 2.2rem;
           font-weight: 600;
@@ -186,19 +180,16 @@ li:last-child {
           align-self: flex-start;
           margin: 1rem 0;
         }
-
         .order-list {
           display: flex;
           width: 100%;
           justify-content: space-between;
           margin: 1rem 0;
-
           .left,
           .right,
           p {
             display: flex;
             flex-direction: column;
-
             font-size: 1.4rem;
             font-family: $worksans;
             color: $white;
@@ -211,24 +202,20 @@ li:last-child {
               text-transform: uppercase;
               opacity: 0.7;
             }
-
             .total {
               opacity: 0.5;
             }
           }
-
           .right {
             align-items: flex-end;
             .date {
               opacity: 0.7;
             }
-
             .totalsum {
               opacity: 0.5;
             }
           }
         }
-
         .divider {
           border-bottom: 1px solid $white;
           opacity: 0.6;
@@ -239,7 +226,6 @@ li:last-child {
           display: flex;
           justify-content: space-between;
           margin: 1.5rem 0;
-
           .total-spend,
           .sum {
             font-size: 1.4rem;

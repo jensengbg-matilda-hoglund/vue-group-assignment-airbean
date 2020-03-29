@@ -73,6 +73,7 @@ export default {
 
       const url = "http://localhost:5000/api/orders";
       this.$store.dispatch("sendOrder", url);
+      this.$store.dispatch("getOrderHistory");
       this.$router.push("/order-status");
     },
     addToCart(product) {
@@ -145,20 +146,16 @@ export default {
   left: 8%;
   right: 8%;
   bottom: 20%;
-
   font-size: 12px;
   line-height: 120%;
   color: #ffffff;
 }
-
 .products {
   flex: 1 0 auto;
-
   width: 31.1rem;
   height: 47.4rem;
   margin: 2rem;
 }
-
 .add-btn {
   grid-area: add-btn;
   width: 3.2rem;
@@ -190,7 +187,6 @@ export default {
 .product-price {
   grid-area: product-price;
 }
-
 .prod {
   display: grid;
   grid-template-columns: 2fr 9fr 2fr;
@@ -201,15 +197,12 @@ export default {
   justify-items: flex-start;
   align-items: baseline;
 }
-
 .footer {
   width: 37.5rem;
   height: 7.3rem;
   background-image: url("../assets/graphics/graphics-footer.svg");
-
   flex-shrink: 0;
 }
-
 .p-prod-desc,
 h1,
 h2,

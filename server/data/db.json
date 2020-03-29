@@ -1,42 +1,4 @@
 {
-  "users": [
-    {
-      "uuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a",
-      "name": "Berntsson",
-      "email": "gusmatho@student.gu.se"
-    },
-    {
-      "uuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a",
-      "name": "Matilda Hoglund",
-      "email": "gusmatho@student.gu.se"
-    },
-    {
-      "uuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a",
-      "name": "Matilda Hoglund",
-      "email": "gusmatho@student.gu.se"
-    },
-    {
-      "uuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a",
-      "name": "Berntsson",
-      "email": "gusmatho@student.gu.se"
-    }
-  ],
-  "orders": [
-    {
-      "uuid": "set this in database",
-      "created": "2020/3/27",
-      "cart": [
-        {
-          "id": 1,
-          "title": "Bryggkaffe",
-          "desc": "Bryggd på månadens bönor.",
-          "price": 39,
-          "quantity": 2,
-          "totPrice": 78
-        }
-      ],
-      "totalValue": 78,
-      "userUuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a"
-    }
-  ]
+  "users": [],
+  "orders": []
 }
