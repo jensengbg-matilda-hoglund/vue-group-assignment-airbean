@@ -56,7 +56,6 @@ export default {
   },
   computed: {
     orders() {
-      this.$store.dispatch("getOrderHistory");
       return this.$store.state.orders.orders;
     },
     profile() {
@@ -86,6 +85,8 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch("getOrderHistory");
+
     // save user in store from ls
     this.$store.commit("saveUser", JSON.parse(localStorage.getItem("user")));
   }
