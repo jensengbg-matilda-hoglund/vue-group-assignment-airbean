@@ -74,11 +74,9 @@ export default {
 
 .nav-overlay {
   width: 37.5rem;
-  // height: 100%;
 }
 
 .content {
-  padding: 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,7 +91,6 @@ export default {
       border-radius: 100%;
       border: none;
       cursor: pointer;
-      padding: 1rem;
     }
   }
 
