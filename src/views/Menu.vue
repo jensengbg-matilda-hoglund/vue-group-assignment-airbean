@@ -67,6 +67,7 @@ export default {
       }
     },
     openCart() {
+      clearInterval(this.$store.state.order.intervalID);
       this.$store.dispatch("sendOrder");
       this.$store.dispatch("getOrderHistory");
       this.$router.push("/order-status");
