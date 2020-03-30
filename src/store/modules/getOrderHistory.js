@@ -17,7 +17,6 @@ const getOrderHistory = {
         .then(data => {
           if (data) {
             ctx.commit("setOrderHistory", data);
-            console.log(data);
           }
         })
         .catch(error => {

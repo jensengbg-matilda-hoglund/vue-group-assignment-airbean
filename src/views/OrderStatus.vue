@@ -2,12 +2,12 @@
   <div class="order-status">
     <div class="order">
       <p>Ordernummer</p>
-      <p class="order-nr">#{{orderStatus.orderNr}}</p>
+      <p class="order-nr">#{{order.orderNr}}</p>
     </div>
     <img src="../assets/graphics/drone.svg" alt="drone" />
     <h1>Din beställning är på väg!</h1>
     <div class="eta">
-      <p class="eta-minutes">{{orderStatus.eta}}</p>
+      <p class="eta-minutes">{{order.eta}}</p>
       <p>minuter</p>
     </div>
     <button @click="redirect" class="btn">Ok, cool!</button>
@@ -16,11 +16,8 @@
 
 <script>
 export default {
-  data: () => {
-    return {};
-  },
   computed: {
-    orderStatus() {
+    order() {
       return this.$store.state.order.orderStatus;
     }
   },
@@ -90,5 +87,6 @@ export default {
   padding: 10px 28px;
   border: none;
   border-radius: 50px;
+  cursor: pointer;
 }
 </style>

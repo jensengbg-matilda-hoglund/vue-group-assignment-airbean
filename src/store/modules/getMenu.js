@@ -16,7 +16,6 @@ const getMenu = {
         .then(data => {
           if (data) {
             ctx.commit("setMenu", data["menu"]);
-            console.log(data);
           }
         })
         .catch(error => {
