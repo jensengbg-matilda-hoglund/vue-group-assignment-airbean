@@ -18,6 +18,7 @@
             {{ product.title }}
             <!-- <span></span> -->
           </h2>
+          <span class="dot-span"></span>
         </div>
         <br>
         <div class="product-price">
@@ -25,7 +26,7 @@
         </div>
             <img @click="addOneProduct" class="arrow" src="@/assets/graphics/arrow-up.svg">
             <strong class="arrow"> {{ $store.state.order.cart_counter }}</strong>
-            <img class="arrow" src="@/assets/graphics/arrow-down.svg">
+            <img @click="removeOneProduct" class="arrow" src="@/assets/graphics/arrow-down.svg">
       </li>
     <br>
    </div>
@@ -50,9 +51,13 @@ export default {
         return {
             
         };
+        
+    },
+    created() {
+    this.$store.dispatch("getOrderHistory");
     },
     computed: {
-        ...mapState(["menu", "cart", "orderStatus"]),
+         ...mapState(["menu", "cart", "orderStatus"]),
         appCounter: function() {
             return this.$store.getters.getCounter
         },
@@ -60,7 +65,10 @@ export default {
           cart: state => state.cart,
           order: state => state.orders,
           user: state => state.uuid
-        })
+        }), 
+        cart() {
+          return this.$store.state.menu.cart;
+        }
     },
     methods: {
       nav() {
@@ -73,8 +81,19 @@ export default {
   openCart() {
       this.$router.push("/menu");
     },
-  addOneProduct(state) {
+  addOneProduct(product) {
+    if (this.state.order.cart_counter == Number) {
     this.$store.commit("addOneProduct", state);
+    }else {
+      console.log("error");
+    }
+    },
+    removeOneProduct(product) {
+      if (this.state.order.cart_counter == Number) {
+      this.$store.commit("removeOneProduct", state);
+      }else {
+        console.log("error");
+      }
     }
   }
 }
@@ -131,5 +150,17 @@ border-radius: 3px;
   position: relative;
   left: 89%;
   top: 10%;
+}
+.product-title {
+  grid-area: product-title;
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  .dot-span {
+    align-self: flex-end;
+    width: 12rem;
+    margin-right: 1rem;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
+  }
 }
 </style>
