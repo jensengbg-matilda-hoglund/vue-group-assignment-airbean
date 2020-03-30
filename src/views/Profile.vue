@@ -157,6 +157,7 @@ li:last-child {
         margin-bottom: 6rem;
 
         .user-name {
+          align-self: center;
           font-size: 2.4rem;
           font-weight: 600;
           font-family: $PT;

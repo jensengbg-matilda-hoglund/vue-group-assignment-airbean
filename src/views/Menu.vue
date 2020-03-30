@@ -23,10 +23,8 @@
           <img src="../assets/graphics/add.svg" />
         </button>
         <div class="product-title">
-          <h2>
-            {{ product.title }}
-            <!-- <span></span> -->
-          </h2>
+          <h2>{{ product.title }}</h2>
+          <span class="dot-span"></span>
         </div>
         <div class="product-desc">
           <p class="p-prod-desc">{{ product.desc }}</p>
@@ -128,6 +126,7 @@ export default {
   height: 4.8rem;
   border-color: $white;
   margin: 2rem;
+  border: none;
 }
 .nav-btn img {
   width: 2.6rem;
@@ -186,6 +185,15 @@ export default {
 }
 .product-title {
   grid-area: product-title;
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  .dot-span {
+    align-self: flex-end;
+    width: 12rem;
+    margin-right: 1rem;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
+  }
 }
 .product-desc {
   grid-area: product-desc;
@@ -193,12 +201,6 @@ export default {
 .product-price {
   grid-area: product-price;
 }
-
-// span {
-//   border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
-//   display: inline-block;
-//   width: 4rem;
-// }
 
 .prod {
   display: grid;
@@ -237,12 +239,16 @@ h1 {
 h2 {
   font-size: 23px;
   line-height: 120%;
+  align-self: flex-start;
+  margin-bottom: -0.5rem;
 }
+
 .p-prod-desc {
   font-family: $worksans;
   font-weight: normal;
   font-size: 12px;
   line-height: 130%;
   color: #2f2926;
+  margin-top: 0.5rem;
 }
 </style>
