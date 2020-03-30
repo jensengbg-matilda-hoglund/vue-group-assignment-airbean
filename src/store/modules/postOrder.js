@@ -3,6 +3,7 @@ const postOrder = {
     orderStatus: { orderNr: "", eta: "" },
     cart: [],
     cart_counter: 0,
+    intervalID: "",
     activeOrder: false
   },
   mutations: {
@@ -15,10 +16,11 @@ const postOrder = {
     },
     countdown(state, eta) {
       const duration = eta * 60;
+      console.log(eta);
       let timer = duration,
         minutes,
         seconds;
-      setInterval(() => {
+      const interval = setInterval(() => {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
         minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -30,6 +32,7 @@ const postOrder = {
           timer = duration;
         }
       }, 1000);
+      state.intervalID = interval;
     },
     // addToCart from MENU-view
     addToCart(state, product) {
@@ -73,6 +76,7 @@ const postOrder = {
       const day = dateObj.getUTCDate();
       const year = dateObj.getUTCFullYear();
       const date = year + "/" + month + "/" + day;
+      console.log(state.cart);
 
       let sum = 0;
       state.cart.forEach(obj => {
