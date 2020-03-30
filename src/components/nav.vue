@@ -40,7 +40,7 @@ export default {
       }
     },
     orderStatus() {
-      if (this.$store.state.noOrder === false) {
+      if (this.$store.state.order.activeOrder === true) {
         if (this.$route.path !== "/order-status") {
           this.$router.push("/order-status");
         } else {

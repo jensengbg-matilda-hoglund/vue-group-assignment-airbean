@@ -2,14 +2,15 @@ const postOrder = {
   state: {
     orderStatus: { orderNr: "", eta: "" },
     cart: [],
-    cart_counter: 0
+    cart_counter: 0,
+    activeOrder: false
   },
   mutations: {
     orderStatus(state, order) {
       state.cart = [];
       state.cart_counter = 0;
       state.orderStatus.orderNr = order.orderNr;
-
+      state.activeOrder = true;
       this.commit("countdown", order.eta);
     },
     countdown(state, eta) {
