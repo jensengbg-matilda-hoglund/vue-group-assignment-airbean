@@ -43,23 +43,23 @@ export default {
         this.$store.dispatch("registerUser", user);
 
         // check if a new user had any orders
-        /*  const checkOrders = JSON.parse(localStorage.getItem("orders"));
+        const checkOrders = JSON.parse(localStorage.getItem("orders"));
         const userUuid = localStorage.getItem("uuid");
         if (checkOrders && checkOrders.length > 0) {
           for (const orderId of checkOrders) {
             const url = `http://localhost:5000/api/orders/${orderId}`;
             fetch(url, {
               method: "PUT",
-              body: JSON.stringify({"userUuid":userUuid}),
+              body: JSON.stringify({ userUuid: userUuid }),
               headers: { "Content-Type": "application/json" }
             })
               .then(response => response.json())
               .catch(error => {
                 console.error("Error:", error);
               });
-          }; 
+          }
         }
-        this.$store.dispatch("getOrderHistory"); */
+        this.$store.dispatch("getOrderHistory");
       }
     }
   }
