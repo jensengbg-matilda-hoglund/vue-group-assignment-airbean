@@ -5,12 +5,18 @@
       <p class="order-nr">#{{order.orderNr}}</p>
     </div>
     <img src="../assets/graphics/drone.svg" alt="drone" />
-    <h1>Din beställning är på väg!</h1>
-    <div class="eta">
-      <p class="eta-minutes">{{order.eta}}</p>
-      <p>minuter</p>
-    </div>
-    <button @click="redirect" class="btn">Ok, cool!</button>
+    <template v-if="order.orderNr == ''">
+      <h1>Du har ingen order</h1>
+      <button @click="redirect" class="btn">Beställ här</button>
+    </template>
+    <template v-else>
+      <h1>Din beställning är på väg!</h1>
+      <div class="eta">
+        <p class="eta-minutes">{{order.eta}}</p>
+        <p>minuter</p>
+      </div>
+      <button @click="redirect" class="btn">Ok, cool!</button>
+    </template>
   </div>
 </template>
 

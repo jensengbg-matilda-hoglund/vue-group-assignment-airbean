@@ -40,13 +40,15 @@ export default {
       }
     },
     orderStatus() {
-      if (this.$store.state.order.activeOrder === true) {
-        if (this.$route.path !== "/order-status") {
-          this.$router.push("/order-status");
-        } else {
-          this.closeNav();
-        }
-      }
+      this.$router.push("/order-status");
+
+      // if (this.$store.state.order.activeOrder === true) {
+      //   if (this.$route.path !== "/order-status") {
+      //     this.$router.push("/order-status");
+      //   } else {
+      //     this.closeNav();
+      //   }
+      // }
     },
     myProfile() {
       if (localStorage.getItem("uuid")) {
