@@ -8,7 +8,8 @@
     <label class="text-label" for="email">Epost</label>
     <input class="text-input" v-model="email" type="text" id="email" />
     <div class="gdpr">
-      <input v-model="gdprChecked" class="checkbox-input" type="checkbox" />
+      <input v-model="gdprChecked" id="radio" class="radio-input" type="radio" name="radio" />
+      <label class="radio-label" for="radio"></label>
       <p class="gdpr-text">GDPR Ok!</p>
     </div>
     <button @click="registerUser" class="btn">Brew me a cup!</button>
@@ -24,9 +25,15 @@ export default {
       gdprChecked: false
     };
   },
+
   methods: {
     registerUser() {
-      if (this.gdprChecked === true) {
+      const radio = document.getElementById("radio");
+      if (
+        this.name.length > 0 &&
+        this.email.includes("@") === true &&
+        radio.checked === true
+      ) {
         const user = { name: this.name, email: this.email };
         this.$store.dispatch("registerUser", user);
       }
@@ -45,7 +52,7 @@ export default {
   color: $black;
   background: $latte;
   width: 34rem;
-  height: 57rem;
+  height: 56rem;
   border-radius: 3px;
 
   .headline {
@@ -80,6 +87,24 @@ export default {
     display: flex;
     align-items: center;
     margin: 2rem 0;
+    height: 1rem;
+
+    input[type="radio"] {
+      visibility: hidden;
+      height: 0;
+      width: 0;
+    }
+
+    .radio-label {
+      cursor: pointer;
+      background-color: #b9aeab;
+      padding: 7px 7px;
+      border-radius: 100%;
+    }
+
+    input[type="radio"]:checked + label {
+      background-color: #0e927d;
+    }
     .gdpr-text {
       margin: 0 0.5rem;
     }
@@ -92,9 +117,10 @@ export default {
     font-family: $PT;
     font-weight: 600;
     padding: 10px 28px;
-    margin-top: 5rem;
+    margin-top: 2rem;
     border: none;
     border-radius: 50px;
+    cursor: pointer;
   }
 }
 </style>

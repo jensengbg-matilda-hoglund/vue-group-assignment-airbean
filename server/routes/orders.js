@@ -3,26 +3,25 @@ const router = new Router();
 const db = require("../modules/db-operations");
 
 router.get("/", (req, res) => {
-  res.send(db.getUsers());
+  res.send(db.getOrders());
 });
 
 router.get("/:uuid", (req, res) => {
-  res.send(db.findUser(req.params.uuid));
+  res.send(db.findOrderByUuid(req.params.uuid));
 });
 
-router.get("/:uuid/orders", (req, res) => {
-  res.send(db.findOrderByUser(req.params.uuid));
-});
 
 router.post("/", (req, res) => {
   let body = req.body;
-  let user = {
+  let order = {
     uuid: body.uuid,
-    name: body.name,
-    email: body.email
+    created: body.created,
+    cart: body.cart,
+    totalValue: body.totalValue,
+    userUuid: body.userUuid
   };
-  db.addUser(user);
-  res.send(user);
+  db.addOrder(order);
+  res.send(order);
 });
 
 module.exports = router;

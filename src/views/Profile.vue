@@ -8,29 +8,31 @@
           <img src="../assets/graphics/navicon.svg" alt />
         </button>
       </div>
-      <Register v-if="displayRegister" class="register" />
+      <Register v-if="user === null" class="register" />
       <section class="main">
         <section class="user">
           <img src="../assets/graphics/profile.svg" alt class="profile-img" />
-          <h2 class="user-name">Sixten Kaffelövér</h2>
-          <p class="user-email">sixten.kaffelover@zocom.se</p>
+          <h2 v-if="user != null" class="user-name">{{user.name}}</h2>
+          <p v-if="user != null" class="user-email">{{user.email}}</p>
         </section>
         <section class="history">
           <h1>Orderhistorik</h1>
-          <li v-for="(order, index) in orders" :key="index" class="order-list">
-            <div class="left">
-              <p class="order-nr">#{{order.orderNr}}</p>
-              <p class="total">total delsumma</p>
-            </div>
-            <div class="right">
-              <p class="date">{{order.timeStamp}}</p>
-              <p class="totalsum">{{order.totalValue}} Kr</p>
-            </div>
-          </li>
+          <ul>
+            <li v-for="(order, index) in orders" :key="index" class="order-list">
+              <div class="left">
+                <p class="order-nr">#{{order.orderNr}}</p>
+                <p class="total">total ordersumma</p>
+              </div>
+              <div class="right">
+                <p class="date">{{order.created}}</p>
+                <p class="totalsum">{{order.totalValue}} Kr</p>
+              </div>
+            </li>
+          </ul>
           <span class="divider"></span>
           <div class="sum-order">
             <p class="total-spend">Totalt spenderat</p>
-            <p class="sum">456 Kr</p>
+            <p class="sum">{{sum}}</p>
           </div>
         </section>
       </section>
@@ -49,26 +51,29 @@ export default {
   },
   data: () => {
     return {
-      openNav: false,
-      displayRegister: true,
-      orders: [
-        {
-          orderNr: "aadfhf455gSA",
-          timeStamp: "24/03/20",
-          cart: "not used",
-          totalValue: "445"
-        },
-        {
-          orderNr: "aadfhf455gSA",
-          timeStamp: "24/03/20",
-          cart: "not used",
-          totalValue: "445"
-        }
-      ]
+      openNav: false
     };
   },
   computed: {
-    // hämta orderHistorik här
+    orders() {
+      return this.$store.state.orders.orders;
+    },
+    profile() {
+      return this.$store.state.profile.uuid;
+    },
+    user() {
+      return this.$store.state.register.user;
+    },
+    sum() {
+      let sum = 0;
+      this.orders.forEach(order => (sum += order.totalValue));
+      return sum;
+    },
+    totalDelsumma() {
+      let totalDelsumma = 0;
+      this.orders.forEach(order => order.cart.totalPrice);
+      return totalDelsumma;
+    }
   },
   methods: {
     nav() {
@@ -79,18 +84,11 @@ export default {
       }
     }
   },
-  mounted() {
-    /*  if (localStorage.getItem("uuid")) {
-      this.displayRegister = false;
-    } */
-  },
-  computed: {
-    profile() {
-      //return this.$store.state.profile.uuid;
-    }
-  },
   created() {
-    //this.$store.dispatch("getOrderHistory");
+    this.$store.dispatch("getOrderHistory");
+
+    // save user in store from ls
+    this.$store.commit("saveUser", JSON.parse(localStorage.getItem("user")));
   }
 };
 </script>
@@ -101,7 +99,7 @@ export default {
 .nav-overlay {
   position: absolute;
   z-index: 2;
-  height: 106rem;
+  // height: 106rem;
   background-color: $black;
 }
 
@@ -109,7 +107,14 @@ export default {
   position: absolute;
   z-index: 1;
   padding: 2rem;
-  bottom: 28%;
+  bottom: 29%;
+}
+
+li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+li:last-child {
+  border-bottom: 0;
 }
 
 .profile {
@@ -119,7 +124,6 @@ export default {
   background: url("../assets/graphics/graphics-header.svg") top no-repeat;
 
   .content {
-    padding: 1.6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -144,7 +148,7 @@ export default {
       flex-direction: column;
       margin-bottom: auto;
       font-family: $worksans;
-      padding: 0 1rem;
+      padding: 0 2rem;
 
       .user {
         display: flex;
@@ -154,10 +158,12 @@ export default {
         margin-bottom: 6rem;
 
         .user-name {
+          align-self: center;
           font-size: 2.4rem;
           font-weight: 600;
           font-family: $PT;
           margin: 2rem 0 0.5rem 0;
+          color: $white;
         }
 
         .user-email {
@@ -169,6 +175,7 @@ export default {
       .history {
         display: flex;
         flex-direction: column;
+        padding: 1rem;
 
         h1 {
           font-size: 2.2rem;
@@ -226,6 +233,7 @@ export default {
           opacity: 0.6;
           width: 100%;
         }
+
         .sum-order {
           display: flex;
           justify-content: space-between;
