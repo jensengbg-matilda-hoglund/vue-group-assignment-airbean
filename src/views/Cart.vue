@@ -74,7 +74,7 @@ export default {
       this.$router.push("/menu");
     },
   addOneProduct(state) {
-    this.$store.state.cart.commit("addOneProduct");
+    this.$store.commit("addOneProduct", state);
     }
   }
 }

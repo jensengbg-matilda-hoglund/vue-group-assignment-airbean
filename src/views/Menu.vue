@@ -80,7 +80,7 @@ export default {
         }
       });
       promise.then(() => {
-        this.$router.push("/order-status");
+        this.$router.push("/cart");
       });
     },
     addToCart(product) {
