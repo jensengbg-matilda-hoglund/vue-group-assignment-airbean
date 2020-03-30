@@ -9,7 +9,7 @@
 <script>
 export default {
   methods: {
-    goToAbout() {
+    goToMenu() {
       this.$router.push("/menu");
     }
   }
