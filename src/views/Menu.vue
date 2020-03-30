@@ -67,21 +67,9 @@ export default {
       }
     },
     openCart() {
-      // send order here until cart is done
-      // added this so we can change send order btn until responds comes back
-      // due to the added delay of 2seconds in backend.
-      let promise = new Promise(resolve => {
-        if (localStorage.getItem("user")) {
-          const url = "http://localhost:5000/api/beans/userOrder";
-          resolve(this.$store.dispatch("sendOrder", url));
-        } else {
-          const url = "http://localhost:5000/api/beans/unregOrder";
-          resolve(this.$store.dispatch("sendOrder", url));
-        }
-      });
-      promise.then(() => {
-        this.$router.push("/order-status");
-      });
+      this.$store.dispatch("sendOrder");
+      this.$store.dispatch("getOrderHistory");
+      this.$router.push("/order-status");
     },
     addToCart(product) {
       this.$store.commit("addToCart", product);
@@ -124,6 +112,7 @@ export default {
   border-color: $white;
   margin: 2rem;
   border: none;
+  cursor: pointer;
 }
 .nav-btn img {
   width: 2.6rem;
@@ -134,6 +123,7 @@ export default {
   height: 6rem;
   background-color: $black;
   border-color: $black;
+  cursor: pointer;
 }
 .cart-btn img {
   width: 1.6rem;
@@ -153,20 +143,16 @@ export default {
   left: 8%;
   right: 8%;
   bottom: 20%;
-
   font-size: 12px;
   line-height: 120%;
   color: #ffffff;
 }
-
 .products {
   flex: 1 0 auto;
-
   width: 31.1rem;
   height: 47.4rem;
   margin: 2rem;
 }
-
 .add-btn {
   grid-area: add-btn;
   width: 3.2rem;
@@ -198,7 +184,6 @@ export default {
 .product-price {
   grid-area: product-price;
 }
-
 .prod {
   display: grid;
   grid-template-columns: 2fr 9fr 2fr;
@@ -209,15 +194,12 @@ export default {
   justify-items: flex-start;
   align-items: baseline;
 }
-
 .footer {
   width: 37.5rem;
   height: 7.3rem;
   background-image: url("../assets/graphics/graphics-footer.svg");
-
   flex-shrink: 0;
 }
-
 .p-prod-desc,
 h1,
 h2,

@@ -8,7 +8,14 @@
     <label class="text-label" for="email">Epost</label>
     <input class="text-input" v-model="email" type="text" id="email" />
     <div class="gdpr">
-      <input v-model="gdprChecked" id="radio" class="radio-input" type="radio" name="radio" />
+      <input
+        v-model="gdprChecked"
+        id="radio"
+        class="radio-input"
+        type="radio"
+        name="radio"
+        value="gdpr"
+      />
       <label class="radio-label" for="radio"></label>
       <p class="gdpr-text">GDPR Ok!</p>
     </div>
@@ -25,17 +32,34 @@ export default {
       gdprChecked: false
     };
   },
-
   methods: {
     registerUser() {
-      const radio = document.getElementById("radio");
       if (
         this.name.length > 0 &&
-        this.email.includes("@") === true &&
-        radio.checked === true
+        this.email.includes("@") &&
+        this.gdprChecked
       ) {
         const user = { name: this.name, email: this.email };
         this.$store.dispatch("registerUser", user);
+
+        // check if a new user had any orders
+        /*  const checkOrders = JSON.parse(localStorage.getItem("orders"));
+        const userUuid = localStorage.getItem("uuid");
+        if (checkOrders && checkOrders.length > 0) {
+          for (const orderId of checkOrders) {
+            const url = `http://localhost:5000/api/orders/${orderId}`;
+            fetch(url, {
+              method: "PUT",
+              body: JSON.stringify({"userUuid":userUuid}),
+              headers: { "Content-Type": "application/json" }
+            })
+              .then(response => response.json())
+              .catch(error => {
+                console.error("Error:", error);
+              });
+          }; 
+        }
+        this.$store.dispatch("getOrderHistory"); */
       }
     }
   }
@@ -81,6 +105,14 @@ export default {
     border-radius: 6px;
     border: 1px solid $black;
     margin: 0.5rem 0 1.5rem 0;
+  }
+
+  .checkbox-input {
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid $black;
+    border-radius: 100%;
+    cursor: pointer;
   }
 
   .gdpr {
