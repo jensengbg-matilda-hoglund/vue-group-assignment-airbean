@@ -2,9 +2,11 @@
   <div class="menu">
     <title>This is MENU page</title>
     <section class="upp">
-      <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
-      <template v-else>
-        <button @click="nav" class="nav-btn">
+      <transition name="fade">
+        <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
+      </transition>
+      <template>
+        <button @click="nav" class="nav-btn pop">
           <img src="../assets/graphics/navicon.svg" />
         </button>
         <!-- <cart /> -->
@@ -20,7 +22,7 @@
     <Waiting v-if="this.$store.state.order.activeOrder" />
     <section v-else class="products">
       <div class="prod" v-for="product in menu" :key="product.id">
-        <button @click="addToCart(product)" class="add-btn">
+        <button @click="addToCart(product)" class="add-btn pop">
           <img src="../assets/graphics/add.svg" />
         </button>
         <div class="product-title">
@@ -83,6 +85,7 @@ export default {
 
 <style lang="scss" scooped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .menu {
   width: 37.5rem;
@@ -101,14 +104,17 @@ export default {
 }
 .nav-overlay {
   position: absolute;
+  z-index: 1;
   height: 83.9rem;
   background-color: $black;
 }
+
 .nav-btn,
 .cart-btn {
   border-radius: 50%;
   margin: 2rem;
 }
+
 .nav-btn {
   width: 4.8rem;
   height: 4.8rem;

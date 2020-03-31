@@ -1,10 +1,11 @@
 <template>
   <div class="profile">
-    <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
-
+    <transition name="fade">
+      <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
+    </transition>
     <section class="content">
       <div class="header">
-        <button @click="nav" class="nav-btn">
+        <button @click="nav" class="nav-btn pop">
           <img src="../assets/graphics/navicon.svg" alt />
         </button>
       </div>
@@ -99,6 +100,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .nav-overlay {
   position: absolute;

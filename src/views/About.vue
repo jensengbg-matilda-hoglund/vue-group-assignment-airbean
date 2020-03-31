@@ -1,10 +1,12 @@
 <template>
   <div class="about">
-    <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
+    <transition name="fade">
+      <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
+    </transition>
 
     <section class="content">
       <div class="header">
-        <button @click="nav" class="nav-btn">
+        <button @click="nav" class="nav-btn pop">
           <img src="../assets/graphics/navicon.svg" alt />
         </button>
       </div>
@@ -50,6 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .nav-overlay {
   position: absolute;
@@ -68,6 +71,7 @@ export default {
     color: $black;
     background: url("../assets/graphics/graphics-header.svg") top no-repeat,
       url("../assets/graphics/graphics-footer.svg") bottom no-repeat;
+
     .header {
       display: flex;
       margin-bottom: auto;
@@ -79,6 +83,7 @@ export default {
         cursor: pointer;
       }
     }
+
     .main {
       padding: 3.2rem;
       display: flex;
