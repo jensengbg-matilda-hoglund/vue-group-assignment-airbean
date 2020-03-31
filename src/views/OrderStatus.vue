@@ -4,7 +4,7 @@
       <p>Ordernummer</p>
       <p class="order-nr">#{{order.orderNr}}</p>
     </div>
-    <img src="../assets/graphics/drone.svg" alt="drone" />
+    <img src="../assets/graphics/drone.svg" alt="drone" class="drone" />
     <template v-if="order.orderNr == ''">
       <h1>Du har ingen order</h1>
       <button @click="redirect" class="btn">Beställ här</button>
@@ -94,5 +94,22 @@ export default {
   border: none;
   border-radius: 50px;
   cursor: pointer;
+}
+
+.drone {
+  animation-name: flying;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes flying {
+  from {
+    transform: translateX(0) translateY(0px);
+  }
+  to {
+    transform: translateY(20px);
+  }
 }
 </style>

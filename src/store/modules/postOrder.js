@@ -16,7 +16,6 @@ const postOrder = {
     },
     countdown(state, eta) {
       const duration = eta * 60;
-      console.log(eta);
       let timer = duration,
         minutes,
         seconds;
@@ -29,7 +28,10 @@ const postOrder = {
         state.orderStatus.eta = minutes + ":" + seconds;
 
         if (--timer < 0) {
-          timer = duration;
+          timer = 0;
+          state.orderStatus.eta = 0;
+          state.activeOrder = false;
+          clearInterval(interval);
         }
       }, 1000);
       state.intervalID = interval;
