@@ -95,6 +95,12 @@ export default {
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  transition: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
 }
 
 .drone {

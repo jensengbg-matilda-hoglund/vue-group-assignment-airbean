@@ -2,9 +2,11 @@
   <div class="menu">
     <title>This is MENU page</title>
     <section class="upp">
-      <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
-      <template v-else>
-        <button @click="nav" class="nav-btn">
+      <transition name="fade">
+        <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
+      </transition>
+      <template>
+        <button @click="nav" class="nav-btn transition">
           <img src="../assets/graphics/navicon.svg" />
         </button>
         <!-- <cart /> -->
@@ -83,6 +85,7 @@ export default {
 
 <style lang="scss" scooped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .menu {
   width: 37.5rem;
@@ -101,14 +104,23 @@ export default {
 }
 .nav-overlay {
   position: absolute;
+  z-index: 1;
   height: 83.9rem;
   background-color: $black;
 }
+
 .nav-btn,
 .cart-btn {
   border-radius: 50%;
   margin: 2rem;
+  transition: ease-in-out;
+  transition-duration: 0.2s;
 }
+
+.nav-btn:hover {
+  transform: scale(1.1);
+}
+
 .nav-btn {
   width: 4.8rem;
   height: 4.8rem;

@@ -7,13 +7,13 @@
         </button>
       </div>
       <section class="nav">
-        <p @click="menu">Meny</p>
+        <p @click="menu" class="pop">Meny</p>
         <span class="divider"></span>
-        <p @click="about">Vårt Kaffe</p>
+        <p @click="about" class="pop">Vårt Kaffe</p>
         <span class="divider"></span>
-        <p @click="orderStatus">Orderstatus</p>
+        <p @click="orderStatus" class="pop">Orderstatus</p>
         <span class="divider"></span>
-        <p @click="myProfile">Min profil</p>
+        <p @click="myProfile" class="pop">Min profil</p>
       </section>
     </section>
   </div>
@@ -116,5 +116,14 @@ export default {
       border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     }
   }
+}
+
+.pop {
+  transition: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.pop:hover {
+  transform: scale(1.1);
 }
 </style>

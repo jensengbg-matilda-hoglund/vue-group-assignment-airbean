@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view />
+    <transition name="welcome">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -8,6 +10,7 @@
 <style lang="scss">
 // google fonts
 @import url("https://fonts.googleapis.com/css?family=PT+Serif|Rufina|Work+Sans&display=swap");
+@import "./assets/scss/transitions.scss";
 
 $black: #2f2926;
 $white: #ffffff;

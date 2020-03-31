@@ -41,6 +41,12 @@ export default {
     border: none;
     border-radius: 50px;
     cursor: pointer;
+    transition: ease-in-out;
+    transition-duration: 0.2s;
+  }
+
+  .myOrder:hover {
+    transform: scale(1.1);
   }
 }
 </style>
