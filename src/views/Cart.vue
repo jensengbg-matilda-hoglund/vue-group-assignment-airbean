@@ -13,6 +13,9 @@
       <button @click="openCart" class="cart-btn">
         <img src="../assets/graphics/bag.svg" />
       </button>
+      <div class="ellipce">
+          <h3 class="quantity-ellipse">{{ $store.state.order.cart_counter }}</h3>
+        </div>
     </section>
 <<<<<<< HEAD
       <div class="wrapper">
@@ -49,7 +52,7 @@
         </div>
         <img @click="addOneProduct" class="arrow" src="@/assets/graphics/arrow-up.svg" />
         <strong class="arrow">{{ product.quantity }}</strong>
-        <img class="arrow" src="@/assets/graphics/arrow-down.svg" />
+        <img @click="removeOneProduct" class="arrow" src="@/assets/graphics/arrow-down.svg" />
       </li>
       <br />
     </div>
@@ -105,6 +108,10 @@ export default {
   data() {
     return {};
   },
+  /*created() {
+    this.$store.dispatch("getMenu");
+    this.$store.dispatch("orderStatus");
+  },*/
   computed: {
     cart() {
       console.log(this.$store.state.order.cart);
@@ -144,8 +151,11 @@ export default {
     openCart() {
       this.$router.push("/menu");
     },
-    addOneProduct(state) {
-      this.$store.commit("addOneProduct", state);
+    addOneProduct(product) {
+      this.$store.commit("addOneProduct", product);
+    },
+    removeOneProduct(product) {
+      this.$store.commit("removeOneProduct", product);
     }
   }
 };
@@ -177,7 +187,6 @@ border-radius: 3px;
   width: 37.5rem;
   height: 83.9rem;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.7);
 }
 .wrapper {
   position: absolute;

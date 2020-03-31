@@ -102,8 +102,592 @@
           "totPrice": 156
         }
       ],
+<<<<<<< Updated upstream
       "totalValue": 156,
       "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
+=======
+      "totalValue": 117,
+      "userUuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a"
+    },
+    {
+      "uuid": "2fbfd2ed-1df2-4ccb-ab21-952ca729734b",
+      "orderNr": "AB1585669786384X",
+      "eta": 12,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 1,
+          "totPrice": 39
+        }
+      ],
+      "totalValue": 39,
+      "userUuid": null
+    },
+    {
+      "uuid": "622a2f3d-1fd9-496d-ae71-9a08f8d3e18b",
+      "orderNr": "AB1585669796734X",
+      "eta": 19,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "1607d305-1fe2-414b-b151-63db985b1e98",
+      "orderNr": "AB1585670083629Z",
+      "eta": 10,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 78,
+      "userUuid": null
+    },
+    {
+      "uuid": "772c5c8d-1014-48fe-9887-2a5b00a29131",
+      "orderNr": "AB1585670095341X",
+      "eta": 15,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 78,
+      "userUuid": null
+    },
+    {
+      "uuid": "d9180d23-4274-411e-ba5d-0bf2259ccaa0",
+      "orderNr": "AB1585670295249X",
+      "eta": 21,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 2,
+          "title": "Caffè Doppio",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 3,
+          "totPrice": 147
+        },
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 225,
+      "userUuid": null
+    },
+    {
+      "uuid": "df4c654a-b22f-4feb-95bb-d92d4675879d",
+      "orderNr": "AB1585674024313X",
+      "eta": 17,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 1,
+          "totPrice": 39
+        }
+      ],
+      "totalValue": 39,
+      "userUuid": null
+    },
+    {
+      "uuid": "557071b2-d28f-4c58-a170-82bda6beb83a",
+      "orderNr": "AB1585675631602X",
+      "eta": 13,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 1,
+          "totPrice": 39
+        }
+      ],
+      "totalValue": 39,
+      "userUuid": null
+    },
+    {
+      "uuid": "8c12819d-30eb-45f2-aa46-da7df8ebd257",
+      "orderNr": "AB1585675820146X",
+      "eta": 29,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "ac304522-9bd2-48f0-91a7-eb7ba15de05a",
+      "orderNr": "AB1585675820149Z",
+      "eta": 24,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "41c3099e-9c73-4659-89b2-79c8ee9d4f9e",
+      "orderNr": "AB1585676099064Z",
+      "eta": 17,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 4,
+          "title": "Latte Macchiato",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        },
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 1,
+          "totPrice": 39
+        },
+        {
+          "id": 2,
+          "title": "Caffè Doppio",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        }
+      ],
+      "totalValue": 137,
+      "userUuid": null
+    },
+    {
+      "uuid": "d8d420d5-b987-4059-af8f-45c05c6929f1",
+      "orderNr": "AB1585676099073Z",
+      "eta": 19,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 4,
+          "title": "Latte Macchiato",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        },
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 1,
+          "totPrice": 39
+        },
+        {
+          "id": 2,
+          "title": "Caffè Doppio",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        }
+      ],
+      "totalValue": 137,
+      "userUuid": null
+    },
+    {
+      "uuid": "28ecd7dd-57d1-435d-bda0-569b97d17514",
+      "orderNr": "AB1585676113752X",
+      "eta": 29,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "9661a20b-c440-4dd7-958f-7609b86767f0",
+      "orderNr": "AB1585676113829Z",
+      "eta": 18,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "abf5423b-e9f5-404c-bc3b-a754ddf09075",
+      "orderNr": "AB1585677171726X",
+      "eta": 27,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "8c853fb9-473a-41d8-b2e0-6d888b6b4594",
+      "orderNr": "AB1585677171763Y",
+      "eta": 19,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "ff7a1820-1b7d-420a-b73e-f090928f7407",
+      "orderNr": "AB1585677184788Z",
+      "eta": 19,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "484b5e7f-e0fd-4385-a04b-e7bd490238e3",
+      "orderNr": "AB1585677184919X",
+      "eta": 29,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "1b6826c5-9def-48d6-b872-a60c57190b6b",
+      "orderNr": "AB1585677307932Y",
+      "eta": 20,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "1b1073c9-2463-46a8-8507-11b91e46e045",
+      "orderNr": "AB1585677307969Z",
+      "eta": 20,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "0d56220c-301d-4b18-91ed-a7ec6d822d18",
+      "orderNr": "AB1585677314381Y",
+      "eta": 15,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "d26e51b2-c840-46ca-afff-9e8dbf4e9ea0",
+      "orderNr": "AB1585677314388Z",
+      "eta": 18,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "6596285d-89ec-4fe3-be7d-0f1c0a243a04",
+      "orderNr": "AB1585677327435Y",
+      "eta": 15,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "9b62d388-ff85-4852-944d-8635b94d2fb0",
+      "orderNr": "AB1585677327449Z",
+      "eta": 24,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "5cad02a1-69e5-49b8-9ba1-e2aeae2722d3",
+      "orderNr": "AB1585677336815Y",
+      "eta": 26,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "d8f1c549-9a8c-443e-a2a2-f2db340a4f0b",
+      "orderNr": "AB1585677336818Z",
+      "eta": 18,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "292076ea-f2f0-4b32-85d3-f658373a19af",
+      "orderNr": "AB1585677481392X",
+      "eta": 23,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "35d95915-e8f8-4c66-bca4-0a89504130c6",
+      "orderNr": "AB1585677481434Y",
+      "eta": 22,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "df458bcd-e56c-4ab0-bdf9-3f9b2cc78d5f",
+      "orderNr": "AB1585677501268X",
+      "eta": 12,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "0fae718d-d840-4594-a4fd-f150000806d5",
+      "orderNr": "AB1585677501303Z",
+      "eta": 22,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "ba3346ca-a589-4638-a211-91bce46f3e18",
+      "orderNr": "AB1585678082514X",
+      "eta": 12,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "c910cdbe-37ef-40e5-94fb-638357bb344c",
+      "orderNr": "AB1585678082581Y",
+      "eta": 27,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "2fd7632d-48ce-4925-af9c-70543369467f",
+      "orderNr": "AB1585678193588Z",
+      "eta": 10,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "ff5bc87d-b300-4d1e-8ae1-91044a7f62e8",
+      "orderNr": "AB1585678193628Y",
+      "eta": 17,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "aa924ad8-76db-41b8-8cf7-81a773181844",
+      "orderNr": "AB1585678203063Y",
+      "eta": 28,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "705997d6-8f92-49a7-af27-6ec7ee7f05de",
+      "orderNr": "AB1585678232089X",
+      "eta": 29,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 78,
+      "userUuid": null
+    },
+    {
+      "uuid": "d9ca7adc-420e-4253-982b-2af4df4e1e08",
+      "orderNr": "AB1585678232098Z",
+      "eta": 23,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 78,
+      "userUuid": null
+    },
+    {
+      "uuid": "b028c71e-ca79-4c63-8943-36f22a5049e0",
+      "orderNr": "AB1585678261892Z",
+      "eta": 23,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "d195fe4f-b977-4a82-b3b3-59b092085e50",
+      "orderNr": "AB1585678429261Z",
+      "eta": 23,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "51b9ca3d-e346-4101-81d7-74325ee5c749",
+      "orderNr": "AB1585678465324X",
+      "eta": 27,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "de0c88bb-12c7-4d8f-b6b1-03474ae35746",
+      "orderNr": "AB1585678488074X",
+      "eta": 25,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "57b74e70-1707-4be9-ab96-62ebb5943957",
+      "orderNr": "AB1585678492617Y",
+      "eta": 27,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "2dbb770d-a1bd-43da-9413-8bf56b7acae6",
+      "orderNr": "AB1585678492635Y",
+      "eta": 25,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "3ad54db4-c16e-490c-8228-35b86afd8707",
+      "orderNr": "AB1585679157780X",
+      "eta": 11,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": null
+    },
+    {
+      "uuid": "11fc769d-64b1-4fd9-abf8-1fa026071dc3",
+      "orderNr": "AB1585679287397Z",
+      "eta": 13,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 1,
+          "totPrice": 39
+        }
+      ],
+      "totalValue": 39,
+      "userUuid": null
+    },
+    {
+      "uuid": "6e337bae-5b3d-4acc-bd94-dbd5eb46daee",
+      "orderNr": "AB1585679287404X",
+      "eta": 21,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 1,
+          "totPrice": 39
+        }
+      ],
+      "totalValue": 39,
+      "userUuid": null
+    },
+    {
+      "uuid": "d7b8eb90-15be-43c1-af6f-f92048fe92cf",
+      "orderNr": "AB1585680391748X",
+      "eta": 26,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 2,
+          "title": "Caffè Doppio",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        },
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 1,
+          "totPrice": 39
+        }
+      ],
+      "totalValue": 88,
+      "userUuid": null
+>>>>>>> Stashed changes
     }
   ]
 =======

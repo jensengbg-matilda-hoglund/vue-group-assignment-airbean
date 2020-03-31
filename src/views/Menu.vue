@@ -92,6 +92,7 @@ export default {
       clearInterval(this.$store.state.order.intervalID);
       this.$store.dispatch("sendOrder");
       this.$store.dispatch("getOrderHistory");
+<<<<<<< Updated upstream
       this.$router.push("/order-status");
 >>>>>>> Stashed changes
 =======
@@ -100,6 +101,9 @@ export default {
       this.$store.dispatch("getOrderHistory");
       this.$router.push("/cart");
 >>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
+=======
+      this.$router.push("/cart");
+>>>>>>> Stashed changes
     },
     addToCart(product) {
       this.$store.commit("addToCart", product);
