@@ -7,7 +7,7 @@
     <img src="../assets/graphics/drone.svg" alt="drone" class="drone" />
     <template v-if="order.orderNr == ''">
       <h1>Du har ingen order</h1>
-      <button @click="redirect" class="btn">Beställ här</button>
+      <button @click="redirect" class="btn pop">Beställ här</button>
     </template>
     <template v-else>
       <h1 v-if="this.$store.state.order.activeOrder">Din beställning är på väg!</h1>
