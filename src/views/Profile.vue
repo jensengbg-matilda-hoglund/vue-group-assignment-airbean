@@ -17,7 +17,7 @@
         </section>
         <section class="history">
           <h1>Orderhistorik</h1>
-          <ul>
+          <ul class="history-scroll">
             <li v-for="(order, index) in orders" :key="index" class="order-list">
               <div class="left">
                 <p class="order-nr">#{{order.orderNr}}</p>
@@ -103,7 +103,7 @@ export default {
 .nav-overlay {
   position: absolute;
   z-index: 2;
-  // height: 106rem;
+
   background-color: $black;
 }
 .register {
@@ -120,7 +120,7 @@ li:last-child {
 }
 .profile {
   background: $latte;
-  min-height: 66.7rem;
+  height: 70rem;
   background-color: $black;
   background: url("../assets/graphics/graphics-header.svg") top no-repeat;
   .content {
@@ -131,7 +131,8 @@ li:last-child {
     width: 100%;
     .header {
       display: flex;
-      margin-bottom: 6rem;
+      margin-bottom: 3rem;
+
       .nav-btn {
         height: 4.8rem;
         width: 4.8rem;
@@ -151,7 +152,7 @@ li:last-child {
         flex-direction: column;
         color: $white;
         align-items: center;
-        margin-bottom: 6rem;
+        margin-bottom: 4rem;
         .user-name {
           align-self: center;
           font-size: 2.4rem;
@@ -168,7 +169,10 @@ li:last-child {
       .history {
         display: flex;
         flex-direction: column;
-        padding: 1rem;
+        height: 35rem;
+        padding: 0 0.5rem 0 1rem;
+        margin-bottom: 3rem;
+
         h1 {
           font-size: 2.2rem;
           font-weight: 600;
@@ -217,6 +221,7 @@ li:last-child {
           border-bottom: 1px solid $white;
           opacity: 0.6;
           width: 100%;
+          padding-top: 1rem;
         }
 
         .sum-order {
@@ -234,5 +239,21 @@ li:last-child {
       }
     }
   }
+}
+
+.history-scroll {
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+}
+
+.history-scroll::-webkit-scrollbar {
+  background: #3a322e;
+  border-radius: 4px;
+  width: 7px;
+}
+.history-scroll::-webkit-scrollbar-thumb {
+  background: #534a46;
+  border-radius: 4px;
 }
 </style>
