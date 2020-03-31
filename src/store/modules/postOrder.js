@@ -78,14 +78,12 @@ const postOrder = {
       const day = dateObj.getUTCDate();
       const year = dateObj.getUTCFullYear();
       const date = year + "/" + month + "/" + day;
-      console.log(state.cart);
 
       let sum = 0;
       state.cart.forEach(obj => {
         sum += obj.totPrice;
       });
 
-      // model for saving data with uuid in database
       const userUuid = localStorage.getItem("uuid");
 
       let order = {
@@ -113,7 +111,6 @@ const postOrder = {
               }
               localOrders.push(data.uuid);
               localStorage.setItem("orders", JSON.stringify(localOrders));
-              let test = JSON.parse(localStorage.getItem("orders"));
             }
           }
         })

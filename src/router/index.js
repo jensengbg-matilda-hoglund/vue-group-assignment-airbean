@@ -30,7 +30,6 @@ const routes = [
     component: OrderStatus
   },
   {
-    // ändra till /profile/:uuid när vi fått back-end uuid att funka
     path: "/profile",
     name: "Profile",
     component: Profile
