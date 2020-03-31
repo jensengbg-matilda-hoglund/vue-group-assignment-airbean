@@ -144,12 +144,14 @@ export default {
   }
 
   .btn {
+    display: flex;
+    align-self: center;
     background: $black;
     color: $white;
     font-size: 2.4rem;
     font-family: $PT;
     font-weight: 600;
-    padding: 10px 28px;
+    padding: 10px 45px;
     margin-top: 2rem;
     border: none;
     border-radius: 50px;
