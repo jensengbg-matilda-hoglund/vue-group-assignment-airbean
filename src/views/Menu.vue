@@ -17,7 +17,8 @@
       </template>
     </section>
     <h1>Meny</h1>
-    <section class="products">
+    <Waiting v-if="this.$store.state.order.activeOrder" />
+    <section v-else class="products">
       <div class="prod" v-for="product in menu" :key="product.id">
         <button @click="addToCart(product)" class="add-btn">
           <img src="../assets/graphics/add.svg" />
@@ -40,11 +41,12 @@
 
 <script>
 import Nav from "@/components/nav.vue";
+import Waiting from "@/components/waiting.vue";
 // import cart from "@/components/cart.vue"
 
 export default {
   name: "Menu",
-  components: { Nav },
+  components: { Nav, Waiting },
   data: () => {
     return {
       openNav: false

@@ -10,7 +10,8 @@
       <button @click="redirect" class="btn">Beställ här</button>
     </template>
     <template v-else>
-      <h1>Din beställning är på väg!</h1>
+      <h1 v-if="this.$store.state.order.activeOrder">Din beställning är på väg!</h1>
+      <h1 v-else>Din beställning är framme!</h1>
       <div class="eta">
         <p class="eta-minutes">{{order.eta}}</p>
         <p>minuter</p>
