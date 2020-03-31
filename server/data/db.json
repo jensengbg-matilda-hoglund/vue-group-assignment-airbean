@@ -1,31 +1,16 @@
 {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   "users": [
-    {
-      "uuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a",
-      "name": "Berntsson",
-      "email": "gusmatho@student.gu.se"
-    },
-    {
-      "uuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a",
-      "name": "Matilda Hoglund",
-      "email": "gusmatho@student.gu.se"
-    },
-    {
-      "uuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a",
-      "name": "Matilda Hoglund",
-      "email": "gusmatho@student.gu.se"
-    },
-    {
-      "uuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a",
-      "name": "Berntsson",
-      "email": "gusmatho@student.gu.se"
-    }
-  ],
+=======
+  "users": [],
   "orders": [
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
     {
-      "uuid": "set this in database",
-      "created": "2020/3/27",
+      "uuid": "591c11dc-04f1-402c-9cbf-817daabf36a6",
+      "orderNr": "AB1585655904912Z",
+      "eta": 19,
+      "created": "2020/3/31",
       "cart": [
         {
           "id": 1,
@@ -37,7 +22,88 @@
         }
       ],
       "totalValue": 78,
-      "userUuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a"
+      "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
+    },
+    {
+      "uuid": "159d22b2-3765-4b8d-a3c6-4a7c598c0308",
+      "orderNr": "AB1585657038152X",
+      "eta": 12,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 3,
+          "totPrice": 117
+        }
+      ],
+      "totalValue": 117,
+      "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
+    },
+    {
+      "uuid": "7d9a1378-1580-428a-ae61-2dab81793c14",
+      "orderNr": "AB1585657238622Z",
+      "eta": 14,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
+    },
+    {
+      "uuid": "4a67cf2d-8271-419d-951a-3a53333c02d2",
+      "orderNr": "AB1585657252539Z",
+      "eta": 16,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
+    },
+    {
+      "uuid": "24da80d2-1813-418d-a19f-9e4853f736a8",
+      "orderNr": "AB1585657924543Z",
+      "eta": 13,
+      "created": "2020/3/31",
+      "cart": [],
+      "totalValue": 0,
+      "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
+    },
+    {
+      "uuid": "1ed1f8cc-9dc6-4d9f-a05d-8c8e8a876c3a",
+      "orderNr": "AB1585658796671X",
+      "eta": 15,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 78,
+      "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
+    },
+    {
+      "uuid": "959702a5-cd4a-4f67-82e9-805cf90cc98c",
+      "orderNr": "AB1585663337123Y",
+      "eta": 17,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 4,
+          "totPrice": 156
+        }
+      ],
+      "totalValue": 156,
+      "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
     }
   ]
 =======

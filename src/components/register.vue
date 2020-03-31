@@ -8,11 +8,18 @@
     <label class="text-label" for="email">Epost</label>
     <input class="text-input" v-model="email" type="text" id="email" />
     <div class="gdpr">
-      <input v-model="gdprChecked" id="radio" class="radio-input" type="radio" name="radio" />
-      <label class="radio-label" for="radio"></label>
+      <input
+        v-model="gdprChecked"
+        id="radio"
+        class="radio-input"
+        type="radio"
+        name="radio"
+        value="gdpr"
+      />
+      <label class="radio-label pop" for="radio"></label>
       <p class="gdpr-text">GDPR Ok!</p>
     </div>
-    <button @click="registerUser" class="btn">Brew me a cup!</button>
+    <button @click="registerUser" class="btn pop">Brew me a cup!</button>
   </div>
 </template>
 
@@ -25,19 +32,20 @@ export default {
       gdprChecked: false
     };
   },
-
   methods: {
     registerUser() {
-      const radio = document.getElementById("radio");
       if (
         this.name.length > 0 &&
-        this.email.includes("@") === true &&
-        radio.checked === true
+        this.email.includes("@") &&
+        this.gdprChecked
       ) {
         const user = { name: this.name, email: this.email };
         this.$store.dispatch("registerUser", user);
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
 
         // check if a new user had any orders
         const checkOrders = JSON.parse(localStorage.getItem("orders"));
@@ -57,7 +65,10 @@ export default {
           }
         }
         this.$store.dispatch("getOrderHistory");
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
       }
     }
   }
@@ -66,6 +77,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .register {
   display: flex;
@@ -105,6 +117,14 @@ export default {
     margin: 0.5rem 0 1.5rem 0;
   }
 
+  .checkbox-input {
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid $black;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+
   .gdpr {
     display: flex;
     align-items: center;
@@ -133,12 +153,14 @@ export default {
   }
 
   .btn {
+    display: flex;
+    align-self: center;
     background: $black;
     color: $white;
     font-size: 2.4rem;
     font-family: $PT;
     font-weight: 600;
-    padding: 10px 28px;
+    padding: 10px 45px;
     margin-top: 2rem;
     border: none;
     border-radius: 50px;

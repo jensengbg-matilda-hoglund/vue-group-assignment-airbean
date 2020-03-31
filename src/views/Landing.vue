@@ -1,5 +1,5 @@
 <template>
-  <div @click="goToAbout" class="landing">
+  <div @click="goToMenu" class="landing">
     <section class="content">
       <img src="../assets/graphics/airbean-landing.svg" alt="Welcome to Air Bean" class="img" />
     </section>
@@ -9,8 +9,8 @@
 <script>
 export default {
   methods: {
-    goToAbout() {
-      this.$router.push("/about");
+    goToMenu() {
+      this.$router.push("/menu");
     }
   }
 };

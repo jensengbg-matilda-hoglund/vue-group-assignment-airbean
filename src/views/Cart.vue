@@ -1,6 +1,10 @@
 <template>
   <div class="main">
+<<<<<<< HEAD
       <section class="upp">
+=======
+    <section class="upp">
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
       <!-- <nav class="nav"/> -->
       <button @click="nav" class="nav-btn">
         <img src="../assets/graphics/navicon.svg" />
@@ -10,14 +14,21 @@
         <img src="../assets/graphics/bag.svg" />
       </button>
     </section>
+<<<<<<< HEAD
       <div class="wrapper">
         <h1>Din beställning</h1>
    <li class="order" v-for="product in menu" :key="product.id">
+=======
+    <div class="wrapper">
+      <h1>Din beställning</h1>
+      <li class="order" v-for="product in cart" :key="product.id">
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
         <div class="product-title">
           <h2>
             {{ product.title }}
             <!-- <span></span> -->
           </h2>
+<<<<<<< HEAD
           <span class="dot-span"></span>
         </div>
         <br>
@@ -30,10 +41,24 @@
       </li>
     <br>
    </div>
+=======
+        </div>
+        <br />
+        <div class="product-price">
+          <p>{{ product.price * product.quantity }}kr</p>
+        </div>
+        <img @click="addOneProduct" class="arrow" src="@/assets/graphics/arrow-up.svg" />
+        <strong class="arrow">{{ product.quantity }}</strong>
+        <img class="arrow" src="@/assets/graphics/arrow-down.svg" />
+      </li>
+      <br />
+    </div>
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import getMenu from "../store/modules/getMenu"
 import getOrderHistory from "../store/modules/getOrderHistory"
 import getUuid from "../store/modules/getUuid"
@@ -72,12 +97,30 @@ export default {
     },
     methods: {
       nav() {
+=======
+import Nav from "../components/nav";
+export default {
+  name: "Cart",
+  components: { Nav },
+  data() {
+    return {};
+  },
+  computed: {
+    cart() {
+      console.log(this.$store.state.order.cart);
+      return this.$store.state.order.cart;
+    }
+  },
+  methods: {
+    nav() {
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
       if (this.openNav === true) {
         this.openNav = false;
       } else {
         this.openNav = true;
       }
     },
+<<<<<<< HEAD
   openCart() {
       this.$router.push("/menu");
     },
@@ -97,11 +140,22 @@ export default {
     }
   }
 }
+=======
+    openCart() {
+      this.$router.push("/menu");
+    },
+    addOneProduct(state) {
+      this.$store.commit("addOneProduct", state);
+    }
+  }
+};
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
 
+<<<<<<< HEAD
 .main{
   width: 37.5rem;
   height: 83.9rem;
@@ -118,6 +172,24 @@ background: #FFFFFF;
 border-radius: 3px;
 }
 .upp{
+=======
+.main {
+  width: 37.5rem;
+  height: 83.9rem;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.7);
+}
+.wrapper {
+  position: absolute;
+  left: 38.53%;
+  right: 38.53%;
+  top: 20.03%;
+  bottom: -48.1%;
+  background: #ffffff;
+  border-radius: 3px;
+}
+.upp {
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
   width: 37.5rem;
   height: 11.3rem;
   background-image: url("../assets/graphics/graphics-header.svg");
@@ -135,22 +207,36 @@ border-radius: 3px;
   position: absolute;
 }
 .nav-btn {
+<<<<<<< HEAD
         height: 4.8rem;
         width: 4.8rem;
         border-radius: 100%;
         border: none;
         cursor: pointer;
       }
+=======
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+}
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
 .cart-btn img {
   width: 1.6rem;
   height: 2.1rem;
 }
+<<<<<<< HEAD
 .arrow{
+=======
+.arrow {
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
   display: flex;
   position: relative;
   left: 89%;
   top: 10%;
 }
+<<<<<<< HEAD
 .product-title {
   grid-area: product-title;
   display: flex;
@@ -163,4 +249,6 @@ border-radius: 3px;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
   }
 }
+=======
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
 </style>

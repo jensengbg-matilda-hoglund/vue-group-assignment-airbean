@@ -2,8 +2,9 @@
   <div class="order-status">
     <div class="order">
       <p>Ordernummer</p>
-      <p class="order-nr">#{{orderStatus.orderNr}}</p>
+      <p class="order-nr">#{{order.orderNr}}</p>
     </div>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     <img src="../assets/graphics/drone.svg" alt="drone" />
     <h1>Din beställning är på väg!</h1>
@@ -17,6 +18,12 @@
     <template v-if="order.orderNr == ''">
       <h1>Du har ingen order</h1>
       <button @click="redirect" class="btn">Beställ här</button>
+=======
+    <img src="../assets/graphics/drone.svg" alt="drone" class="drone" />
+    <template v-if="order.orderNr == ''">
+      <h1>Du har ingen order</h1>
+      <button @click="redirect" class="btn pop">Beställ här</button>
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
     </template>
     <template v-else>
       <h1 v-if="this.$store.state.order.activeOrder">Din beställning är på väg!</h1>
@@ -25,19 +32,21 @@
         <p class="eta-minutes">{{order.eta}}</p>
         <p>minuter</p>
       </div>
+<<<<<<< HEAD
       <button @click="redirect" class="btn">Ok, cool!</button>
     </template>
 >>>>>>> Stashed changes
+=======
+      <button @click="redirect" class="btn pop">Ok, cool!</button>
+    </template>
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
   </div>
 </template>
 
 <script>
 export default {
-  data: () => {
-    return {};
-  },
   computed: {
-    orderStatus() {
+    order() {
       return this.$store.state.order.orderStatus;
     }
   },
@@ -51,6 +60,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .order-status {
   display: flex;
@@ -107,6 +117,24 @@ export default {
   padding: 10px 28px;
   border: none;
   border-radius: 50px;
+  cursor: pointer;
+}
+
+.drone {
+  animation-name: flying;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes flying {
+  from {
+    transform: translateX(0) translateY(0px);
+  }
+  to {
+    transform: translateY(20px);
+  }
 }
 
 .drone {

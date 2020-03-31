@@ -7,13 +7,13 @@
         </button>
       </div>
       <section class="nav">
-        <p @click="menu">Meny</p>
+        <p @click="menu" class="pop">Meny</p>
         <span class="divider"></span>
-        <p @click="about">Vårt Kaffe</p>
+        <p @click="about" class="pop">Vårt Kaffe</p>
         <span class="divider"></span>
-        <p @click="orderStatus">Orderstatus</p>
+        <p @click="orderStatus" class="pop">Orderstatus</p>
         <span class="divider"></span>
-        <p @click="myProfile">Min profil</p>
+        <p @click="myProfile" class="pop">Min profil</p>
       </section>
     </section>
   </div>
@@ -40,6 +40,7 @@ export default {
       }
     },
     orderStatus() {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       if (this.$store.state.noOrder === false) {
         if (this.$route.path !== "/order-status") {
@@ -49,6 +50,8 @@ export default {
         }
       }
 =======
+=======
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
       this.$router.push("/order-status");
 
       // if (this.$store.state.order.activeOrder === true) {
@@ -58,7 +61,10 @@ export default {
       //     this.closeNav();
       //   }
       // }
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
     },
     myProfile() {
       if (localStorage.getItem("uuid")) {
@@ -83,6 +89,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .nav-overlay {
   width: 37.5rem;

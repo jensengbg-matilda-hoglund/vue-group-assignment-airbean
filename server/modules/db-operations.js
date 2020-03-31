@@ -25,6 +25,9 @@ exports.addOrder = order => db.get("orders").push(order).write();
 exports.findOrderByUser = uuid => db.get("orders").filter(order => order.userUuid === uuid)
 exports.findOrderByUuid = uuid => db.get("orders").find({uuid: uuid}).value()
 
+// update data after registration
+exports.updateOrder = (uuid, value) => db.get('orders').find({uuid: uuid}).assign(value).write()
+
 
 
 

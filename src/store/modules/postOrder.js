@@ -2,6 +2,7 @@ const postOrder = {
   state: {
     orderStatus: { orderNr: "", eta: "" },
     cart: [],
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     cart_counter: 0
 =======
@@ -9,16 +10,21 @@ const postOrder = {
     intervalID: "",
     activeOrder: false
 >>>>>>> Stashed changes
+=======
+    cart_counter: 0,
+    intervalID: "",
+    activeOrder: false
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
   },
   mutations: {
     orderStatus(state, order) {
-      state.orderStatus = order;
       state.cart = [];
       state.cart_counter = 0;
+      state.orderStatus.orderNr = order.orderNr;
+      state.activeOrder = true;
       this.commit("countdown", order.eta);
     },
     countdown(state, eta) {
-      console.log(state.orderStatus);
       const duration = eta * 60;
       let timer = duration,
         minutes,
@@ -37,7 +43,6 @@ const postOrder = {
           state.activeOrder = false;
           clearInterval(interval);
         }
-        localStorage.setItem("orderStatus", JSON.stringify(state.orderStatus));
       }, 1000);
       state.intervalID = interval;
     },
@@ -58,7 +63,6 @@ const postOrder = {
       }
 
       state.cart_counter++;
-      console.log(state.cart);
     },
     // remove/add from CART-component
     removeOneProduct(state, product) {
@@ -91,18 +95,16 @@ const postOrder = {
         sum += obj.totPrice;
       });
 
-      // model for saving data with uuid in database
       const userUuid = localStorage.getItem("uuid");
-      console.log(userUuid)
+
       let order = {
-        uuid: "set this in database",
         created: date,
         cart: state.cart,
         totalValue: sum,
         userUuid: userUuid
       };
 
-      fetch(url, {
+      fetch("http://localhost:5000/api/orders", {
         method: "POST",
         body: JSON.stringify(order),
         headers: { "Content-Type": "application/json" }
@@ -111,8 +113,16 @@ const postOrder = {
         .then(data => {
           if (data) {
             commit("orderStatus", data);
-            state.cart_counter = 0;
-            console.log(data);
+
+            // save orders of unregistered users
+            if (data.userUuid == null) {
+              let localOrders = JSON.parse(localStorage.getItem("orders"));
+              if (localOrders == null) {
+                localOrders = [];
+              }
+              localOrders.push(data.uuid);
+              localStorage.setItem("orders", JSON.stringify(localOrders));
+            }
           }
         })
         .catch(error => {

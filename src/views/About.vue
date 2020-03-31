@@ -1,10 +1,12 @@
 <template>
   <div class="about">
-    <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
+    <transition name="fade">
+      <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
+    </transition>
 
     <section class="content">
       <div class="header">
-        <button @click="nav" class="nav-btn">
+        <button @click="nav" class="nav-btn pop">
           <img src="../assets/graphics/navicon.svg" alt />
         </button>
       </div>
@@ -50,17 +52,16 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .nav-overlay {
   position: absolute;
   height: 100rem;
   background-color: $black;
 }
-
 .about {
   background: $latte;
   height: 100rem;
-
   .content {
     display: flex;
     flex-direction: column;
@@ -74,7 +75,6 @@ export default {
     .header {
       display: flex;
       margin-bottom: auto;
-
       .nav-btn {
         height: 4.8rem;
         width: 4.8rem;
@@ -89,14 +89,12 @@ export default {
       display: flex;
       flex-direction: column;
       margin-bottom: auto;
-
       .headline {
         font-size: 4.2rem;
         font-family: $PT;
         margin: 1rem 0;
         align-self: flex-start;
       }
-
       .ingress {
         font-weight: 600;
         font-size: 1.4rem;
@@ -104,14 +102,12 @@ export default {
         line-height: 160%;
         margin: 1rem 0;
       }
-
       p {
         font-size: 1.2rem;
         font-family: $worksans;
         line-height: 160%;
         margin: 1rem 0;
       }
-
       .author {
         display: flex;
         flex-direction: column;
@@ -119,17 +115,14 @@ export default {
         align-items: center;
         margin-top: 2rem;
         height: 12rem;
-
         .author-img {
           border-radius: 100%;
         }
-
         .name {
           font-size: 2.2rem;
           font-family: $PT;
           align-self: inherit;
         }
-
         .role {
           margin: 0;
           font-size: 1.2rem;

@@ -5,6 +5,8 @@ import About from "../views/About.vue";
 import Menu from "../views/Menu.vue";
 import Cart from "../views/Cart.vue";
 import OrderStatus from "../views/OrderStatus.vue";
+import Cart from "../views/Cart.vue";
+
 import Profile from "../views/Profile.vue";
 
 Vue.use(VueRouter);
@@ -36,7 +38,11 @@ const routes = [
     component: OrderStatus
   },
   {
-    // ändra till /profile/:uuid när vi fått back-end uuid att funka
+    path: "/cart",
+    name: "Cart",
+    component: Cart
+  },
+  {
     path: "/profile",
     name: "Profile",
     component: Profile

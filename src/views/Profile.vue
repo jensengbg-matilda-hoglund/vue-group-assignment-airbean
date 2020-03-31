@@ -1,10 +1,11 @@
 <template>
   <div class="profile">
-    <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
-
+    <transition name="fade">
+      <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
+    </transition>
     <section class="content">
       <div class="header">
-        <button @click="nav" class="nav-btn">
+        <button @click="nav" class="nav-btn pop">
           <img src="../assets/graphics/navicon.svg" alt />
         </button>
       </div>
@@ -84,10 +85,14 @@ export default {
       }
     }
   },
+  mounted() {
+    if (localStorage.getItem("uuid")) {
+      this.displayRegister = false;
+    }
+  },
   created() {
     this.$store.dispatch("getOrderHistory");
 
-    // save user in store from ls
     this.$store.commit("saveUser", JSON.parse(localStorage.getItem("user")));
   }
 };
@@ -95,6 +100,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .nav-overlay {
   position: absolute;
@@ -102,41 +108,40 @@ export default {
 
   background-color: $black;
 }
-
 .register {
   position: absolute;
   z-index: 1;
   padding: 2rem;
-  bottom: 29%;
+  bottom: 20%;
 }
-
 li {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 li:last-child {
   border-bottom: 0;
 }
-
 .profile {
   background: $latte;
   height: 70rem;
   background-color: $black;
   background: url("../assets/graphics/graphics-header.svg") top no-repeat;
-
   .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
     width: 100%;
-
     .header {
       display: flex;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       margin-bottom: 6rem;
 =======
       margin-bottom: 3rem;
 >>>>>>> Stashed changes
+=======
+      margin-bottom: 3rem;
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
 
       .nav-btn {
         height: 4.8rem;
@@ -146,25 +151,27 @@ li:last-child {
         cursor: pointer;
       }
     }
-
     .main {
       display: flex;
       flex-direction: column;
       margin-bottom: auto;
       font-family: $worksans;
       padding: 0 2rem;
-
       .user {
         display: flex;
         flex-direction: column;
         color: $white;
         align-items: center;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         margin-bottom: 6rem;
 
 =======
         margin-bottom: 4rem;
 >>>>>>> Stashed changes
+=======
+        margin-bottom: 4rem;
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
         .user-name {
           align-self: center;
           font-size: 2.4rem;
@@ -173,16 +180,15 @@ li:last-child {
           margin: 2rem 0 0.5rem 0;
           color: $white;
         }
-
         .user-email {
           font-size: 1.4rem;
           opacity: 0.8;
         }
       }
-
       .history {
         display: flex;
         flex-direction: column;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         padding: 1rem;
 =======
@@ -190,6 +196,11 @@ li:last-child {
         padding: 0 0.5rem 0 1rem;
         margin-bottom: 3rem;
 >>>>>>> Stashed changes
+=======
+        height: 35rem;
+        padding: 0 0.5rem 0 1rem;
+        margin-bottom: 3rem;
+>>>>>>> ab07508512b3dcd17378ff9114a8bf03328a8646
 
         h1 {
           font-size: 2.2rem;
@@ -199,19 +210,16 @@ li:last-child {
           align-self: flex-start;
           margin: 1rem 0;
         }
-
         .order-list {
           display: flex;
           width: 100%;
           justify-content: space-between;
           margin: 1rem 0;
-
           .left,
           .right,
           p {
             display: flex;
             flex-direction: column;
-
             font-size: 1.4rem;
             font-family: $worksans;
             color: $white;
@@ -224,24 +232,20 @@ li:last-child {
               text-transform: uppercase;
               opacity: 0.7;
             }
-
             .total {
               opacity: 0.5;
             }
           }
-
           .right {
             align-items: flex-end;
             .date {
               opacity: 0.7;
             }
-
             .totalsum {
               opacity: 0.5;
             }
           }
         }
-
         .divider {
           border-bottom: 1px solid $white;
           opacity: 0.6;
@@ -253,7 +257,6 @@ li:last-child {
           display: flex;
           justify-content: space-between;
           margin: 1.5rem 0;
-
           .total-spend,
           .sum {
             font-size: 1.4rem;
