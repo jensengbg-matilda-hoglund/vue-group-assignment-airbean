@@ -2,7 +2,13 @@ const postOrder = {
   state: {
     orderStatus: { orderNr: "", eta: "" },
     cart: [],
+<<<<<<< Updated upstream
     cart_counter: 0
+=======
+    cart_counter: 0,
+    intervalID: "",
+    activeOrder: false
+>>>>>>> Stashed changes
   },
   mutations: {
     orderStatus(state, order) {
@@ -17,7 +23,7 @@ const postOrder = {
       let timer = duration,
         minutes,
         seconds;
-      setInterval(() => {
+      const interval = setInterval(() => {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
         minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -26,10 +32,14 @@ const postOrder = {
         state.orderStatus.eta = minutes + ":" + seconds;
 
         if (--timer < 0) {
-          timer = duration;
+          timer = 0;
+          state.orderStatus.eta = 0;
+          state.activeOrder = false;
+          clearInterval(interval);
         }
         localStorage.setItem("orderStatus", JSON.stringify(state.orderStatus));
       }, 1000);
+      state.intervalID = interval;
     },
     // addToCart from MENU-view
     addToCart(state, product) {
@@ -74,6 +84,7 @@ const postOrder = {
       const day = dateObj.getUTCDate();
       const year = dateObj.getUTCFullYear();
       const date = year + "/" + month + "/" + day;
+      console.log(state.cart);
 
       let sum = 0;
       state.cart.forEach(obj => {

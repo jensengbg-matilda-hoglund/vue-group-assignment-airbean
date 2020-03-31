@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "users": [
     {
       "uuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a",
@@ -39,4 +40,8 @@
       "userUuid": "995b6a4f-4169-4780-aeed-771ca8d7d40a"
     }
   ]
+=======
+  "users": [],
+  "orders": []
+>>>>>>> Stashed changes
 }

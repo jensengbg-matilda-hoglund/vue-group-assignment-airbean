@@ -4,6 +4,7 @@
       <p>Ordernummer</p>
       <p class="order-nr">#{{orderStatus.orderNr}}</p>
     </div>
+<<<<<<< Updated upstream
     <img src="../assets/graphics/drone.svg" alt="drone" />
     <h1>Din beställning är på väg!</h1>
     <div class="eta">
@@ -11,6 +12,22 @@
       <p>minuter</p>
     </div>
     <button @click="redirect" class="btn">Ok, cool!</button>
+=======
+    <img src="../assets/graphics/drone.svg" alt="drone" class="drone" />
+    <template v-if="order.orderNr == ''">
+      <h1>Du har ingen order</h1>
+      <button @click="redirect" class="btn">Beställ här</button>
+    </template>
+    <template v-else>
+      <h1 v-if="this.$store.state.order.activeOrder">Din beställning är på väg!</h1>
+      <h1 v-else>Din beställning är framme!</h1>
+      <div class="eta">
+        <p class="eta-minutes">{{order.eta}}</p>
+        <p>minuter</p>
+      </div>
+      <button @click="redirect" class="btn">Ok, cool!</button>
+    </template>
+>>>>>>> Stashed changes
   </div>
 </template>
 
@@ -90,5 +107,22 @@ export default {
   padding: 10px 28px;
   border: none;
   border-radius: 50px;
+}
+
+.drone {
+  animation-name: flying;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes flying {
+  from {
+    transform: translateX(0) translateY(0px);
+  }
+  to {
+    transform: translateY(20px);
+  }
 }
 </style>

@@ -40,6 +40,7 @@ export default {
       }
     },
     orderStatus() {
+<<<<<<< Updated upstream
       if (this.$store.state.noOrder === false) {
         if (this.$route.path !== "/order-status") {
           this.$router.push("/order-status");
@@ -47,6 +48,17 @@ export default {
           this.closeNav();
         }
       }
+=======
+      this.$router.push("/order-status");
+
+      // if (this.$store.state.order.activeOrder === true) {
+      //   if (this.$route.path !== "/order-status") {
+      //     this.$router.push("/order-status");
+      //   } else {
+      //     this.closeNav();
+      //   }
+      // }
+>>>>>>> Stashed changes
     },
     myProfile() {
       if (localStorage.getItem("uuid")) {
