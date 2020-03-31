@@ -4,6 +4,8 @@ import Landing from "../views/Landing.vue";
 import About from "../views/About.vue";
 import Menu from "../views/Menu.vue";
 import OrderStatus from "../views/OrderStatus.vue";
+import Cart from "../views/Cart.vue";
+
 import Profile from "../views/Profile.vue";
 
 Vue.use(VueRouter);
@@ -28,6 +30,11 @@ const routes = [
     path: "/order-status",
     name: "OrderStatus",
     component: OrderStatus
+  },
+  {
+    path: "/cart",
+    name: "Cart",
+    component: Cart
   },
   {
     path: "/profile",

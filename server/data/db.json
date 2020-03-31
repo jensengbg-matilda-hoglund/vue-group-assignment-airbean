@@ -81,6 +81,24 @@
       ],
       "totalValue": 78,
       "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
+    },
+    {
+      "uuid": "959702a5-cd4a-4f67-82e9-805cf90cc98c",
+      "orderNr": "AB1585663337123Y",
+      "eta": 17,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 4,
+          "totPrice": 156
+        }
+      ],
+      "totalValue": 156,
+      "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
     }
   ]
 }

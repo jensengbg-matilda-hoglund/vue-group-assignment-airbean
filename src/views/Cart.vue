@@ -42,6 +42,7 @@ export default {
   },
   computed: {
     cart() {
+      console.log(this.$store.state.order.cart);
       return this.$store.state.order.cart;
     }
   },
