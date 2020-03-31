@@ -16,10 +16,10 @@
         name="radio"
         value="gdpr"
       />
-      <label class="radio-label" for="radio"></label>
+      <label class="radio-label pop" for="radio"></label>
       <p class="gdpr-text">GDPR Ok!</p>
     </div>
-    <button @click="registerUser" class="btn">Brew me a cup!</button>
+    <button @click="registerUser" class="btn pop">Brew me a cup!</button>
   </div>
 </template>
 
@@ -68,6 +68,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .register {
   display: flex;

@@ -112,7 +112,7 @@ export default {
   position: absolute;
   z-index: 1;
   padding: 2rem;
-  bottom: 29%;
+  bottom: 20%;
 }
 li {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
