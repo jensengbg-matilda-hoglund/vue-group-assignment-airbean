@@ -6,7 +6,7 @@
 
     <section class="content">
       <div class="header">
-        <button @click="nav" class="nav-btn">
+        <button @click="nav" class="nav-btn pop">
           <img src="../assets/graphics/navicon.svg" alt />
         </button>
       </div>

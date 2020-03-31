@@ -16,7 +16,7 @@
         <p class="eta-minutes">{{order.eta}}</p>
         <p>minuter</p>
       </div>
-      <button @click="redirect" class="btn">Ok, cool!</button>
+      <button @click="redirect" class="btn pop">Ok, cool!</button>
     </template>
   </div>
 </template>
@@ -38,6 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .order-status {
   display: flex;
@@ -95,12 +96,6 @@ export default {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: ease-in-out;
-  transition-duration: 0.2s;
-}
-
-.btn:hover {
-  transform: scale(1.1);
 }
 
 .drone {

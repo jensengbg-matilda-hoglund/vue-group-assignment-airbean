@@ -73,6 +73,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
+@import "../assets/scss/transitions.scss";
 
 .nav-overlay {
   width: 37.5rem;
@@ -116,14 +117,5 @@ export default {
       border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     }
   }
-}
-
-.pop {
-  transition: ease-in-out;
-  transition-duration: 0.2s;
-}
-
-.pop:hover {
-  transform: scale(1.1);
 }
 </style>

@@ -17,3 +17,13 @@
 .welcome-leave-to {
   opacity: 0;
 }
+
+// animation
+.pop {
+  transition: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.pop:hover {
+  transform: scale(1.1);
+}
