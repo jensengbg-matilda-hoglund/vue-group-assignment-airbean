@@ -85,7 +85,8 @@ export default {
       this.$store.commit("removeOneProduct", product);
     },
     sendOrder() {
-      this.$store.dispatch("sendOrder")
+      this.$store.dispatch("sendOrder");
+      this.$router.push("/order-status");
     }
   }
 };
@@ -120,10 +121,12 @@ export default {
   justify-content: space-between;
 }
 .cart-btn {
+  position: relative;
   width: 6rem;
   height: 6rem;
   background-color: $black;
   border-color: $black;
+  left: 25%;
 }
 .nav-overlay {
   position: absolute;
@@ -134,6 +137,24 @@ export default {
   border-radius: 100%;
   border: none;
   cursor: pointer;
+}
+.ellipce {
+  height: 2.6rem;
+  width: 2.6rem;
+  background: #e5674e;
+  border-radius: 50%;
+  position: relative;
+  left: -8%;
+  top: 12%;
+}
+.quantity-ellipse {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 20%;
+  font-size: 12px;
+  line-height: 120%;
+  color: #ffffff;
 }
 .cart-btn img {
   width: 1.6rem;
