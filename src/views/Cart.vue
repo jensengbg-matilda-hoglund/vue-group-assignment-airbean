@@ -2,6 +2,9 @@
   <div class="main">
     <section class="upp">
       <!-- <nav class="nav"/> -->
+      <transition name="fade">
+        <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
+      </transition>
       <button @click="nav" class="nav-btn">
         <img src="../assets/graphics/navicon.svg" />
       </button>
@@ -50,7 +53,9 @@ export default {
   name: "Cart",
   components: { Nav },
   data() {
-    return {};
+    return {
+      openNav: false
+    };
   },
   /*created() {
     this.$store.dispatch("getMenu");
