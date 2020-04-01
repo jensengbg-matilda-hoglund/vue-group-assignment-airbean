@@ -11,20 +11,7 @@
 // google fonts
 @import url("https://fonts.googleapis.com/css?family=PT+Serif|Rufina|Work+Sans&display=swap");
 @import "./assets/scss/transitions.scss";
-
-$black: #2f2926;
-$white: #ffffff;
-$red: #e5674e;
-$green: #38846d;
-$latte: #f3e4e1;
-//h1
-$rufina: "Rufina", serif;
-
-// h2, h3 etc
-$PT: "PT Serif", serif;
-
-// p
-$worksans: "Work Sans", sans-serif;
+@import "./assets/scss/variables.scss";
 
 * {
   margin: 0;
