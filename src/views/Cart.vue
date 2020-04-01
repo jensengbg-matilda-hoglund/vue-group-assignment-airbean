@@ -27,11 +27,11 @@
         <div class="product-price">
           <p>{{ product.price * product.quantity }}kr</p>
         </div>
-        <img @click="addOneProduct" class="arrow" src="@/assets/graphics/arrow-up.svg" />
+        <img @click="addOneProduct(product)" class="arrow" src="@/assets/graphics/arrow-up.svg" />
         <br>
         <strong class="arrow">{{ product.quantity }}</strong>
         <br>
-        <img @click="removeOneProduct" class="arrow" src="@/assets/graphics/arrow-down.svg" />
+        <img @click="removeOneProduct(product)" class="arrow" src="@/assets/graphics/arrow-down.svg" />
       </li>
       <br />
       <div class="total">
@@ -73,10 +73,10 @@ export default {
     openCart() {
       this.$router.push("/menu");
     },
-    addOneProduct(state, product) {
+    addOneProduct(product) {
       this.$store.commit("addOneProduct", product);
     },
-    removeOneProduct(state, product) {
+    removeOneProduct(product) {
       this.$store.commit("removeOneProduct", product);
     },
     sendOrder() {
