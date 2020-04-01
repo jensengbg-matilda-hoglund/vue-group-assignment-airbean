@@ -94,6 +94,7 @@ export default {
     sendOrder() {
       clearInterval(this.$store.state.order.intervalID);
       this.$store.dispatch("getOrderHistory");
+      this.$store.dispatch("sendOrder");
       this.$router.push("/order-status");
     }
   }
