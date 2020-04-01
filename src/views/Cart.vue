@@ -104,12 +104,9 @@ export default {
   border-radius: 3px;
 }
 .wrapper {
-  position: absolute;
-  left: 38.53%;
-  right: 38.53%;
-  top: 20.03%;
-  bottom: -48.1%;
-  background: #ffffff;
+  margin: 2rem;
+  padding: 2rem;
+  background: #FFFFFF;
   border-radius: 3px;
 }
 .order-title {
