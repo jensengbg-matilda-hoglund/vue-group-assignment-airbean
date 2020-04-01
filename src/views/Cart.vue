@@ -17,7 +17,8 @@
         </div>
     </section>
     <div class="wrapper">
-      <h1>Din beställning</h1>
+      <h2 class="order-title">Din beställning</h2>
+      <br>
       <li class="order" v-for="product in cart" :key="product.id">
         <div class="product-title">
           <h2>
@@ -39,7 +40,8 @@
       <br />
       <div class="total">
         <h2 class="total-text">Total</h2>
-        <h2 class="total-price"></h2>
+        <span class="dot-span"></span>
+        <h2 class="total-price">{{ sum }}kr</h2>
         <p>inkl moms + drönarleverans</p>
         <button @click="sendOrder" class="checkout-btn">Take my money!</button>
       </div>
@@ -57,14 +59,15 @@ export default {
       openNav: false
     };
   },
-  /*created() {
-    this.$store.dispatch("getMenu");
-    this.$store.dispatch("orderStatus");
-  },*/
   computed: {
     cart() {
       console.log(this.$store.state.order.cart);
       return this.$store.state.order.cart;
+    },
+    sum() {
+      let sum = 0;
+      this.cart.forEach(order => (sum += order.totPrice));
+      return sum;
     }
   },
   methods: {
@@ -101,13 +104,14 @@ export default {
   border-radius: 3px;
 }
 .wrapper {
-  position: absolute;
-  left: 38.53%;
-  right: 38.53%;
-  top: 20.03%;
-  bottom: -48.1%;
-  background: #ffffff;
+  margin: 2rem;
+  padding: 2rem;
+  background: #FFFFFF;
   border-radius: 3px;
+}
+.order-title {
+  margin-top: 3%;
+  margin-bottom: 2%;
 }
 .order{
   list-style-type: none;
@@ -160,6 +164,14 @@ export default {
   width: 1.6rem;
   height: 2.1rem;
 }
+.product-title {
+  position: relative;
+  top: 3.8rem;
+}
+.product-price {
+  position: relative;
+  top: 3.5rem;
+}
 .arrow {
   display: flex;
   position: relative;
@@ -171,14 +183,21 @@ export default {
   display: flex;
   justify-content: left;
 }
+.total-price {
+  display: flex;
+  position: relative;
+  left: 75%;
+}
 .checkout-btn {
   font-size: 1.9rem;
-  padding: 0.8rem 2rem;
+  padding: 1rem 2rem;
   border: solid;
   border-radius: 2.5rem;
   color: white;
   background: $black;
   margin-top: 8rem;
   margin-left: 15%;
+  font-family: $PT;
+  cursor: pointer;
 }
 </style>
