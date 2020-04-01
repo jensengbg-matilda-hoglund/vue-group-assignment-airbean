@@ -99,6 +99,64 @@
       ],
       "totalValue": 156,
       "userUuid": "ca3a556e-170f-4c8e-af0a-67d9d0553b6f"
+    },
+    {
+      "uuid": "4ccf1977-e857-4480-8f09-ce1950532986",
+      "orderNr": "AB1585692288375Z",
+      "eta": 26,
+      "created": "2020/3/31",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 1,
+          "totPrice": 39
+        },
+        {
+          "id": 2,
+          "title": "Caffè Doppio",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        },
+        {
+          "id": 3,
+          "title": "Cappuccino",
+          "desc": "Bryggd på förra månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        },
+        {
+          "id": 4,
+          "title": "Latte Macchiato",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        },
+        {
+          "id": 5,
+          "title": "Kaffe Latte",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 54,
+          "quantity": 1,
+          "totPrice": 54
+        },
+        {
+          "id": 6,
+          "title": "Cortado",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 318,
+      "userUuid": null
     }
   ]
 }

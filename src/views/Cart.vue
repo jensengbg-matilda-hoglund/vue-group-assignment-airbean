@@ -9,6 +9,9 @@
       <button @click="openCart" class="cart-btn">
         <img src="../assets/graphics/bag.svg" />
       </button>
+      <div class="ellipce">
+          <h3 class="quantity-ellipse">{{ $store.state.order.cart_counter }}</h3>
+        </div>
     </section>
     <div class="wrapper">
       <h1>Din beställning</h1>
@@ -18,16 +21,25 @@
             {{ product.title }}
             <!-- <span></span> -->
           </h2>
+          <span class="dot-span"></span>
         </div>
         <br />
         <div class="product-price">
           <p>{{ product.price * product.quantity }}kr</p>
         </div>
         <img @click="addOneProduct" class="arrow" src="@/assets/graphics/arrow-up.svg" />
+        <br>
         <strong class="arrow">{{ product.quantity }}</strong>
-        <img class="arrow" src="@/assets/graphics/arrow-down.svg" />
+        <br>
+        <img @click="removeOneProduct" class="arrow" src="@/assets/graphics/arrow-down.svg" />
       </li>
       <br />
+      <div class="total">
+        <h2 class="total-text">Total</h2>
+        <h2 class="total-price"></h2>
+        <p>inkl moms + drönarleverans</p>
+        <button @click="sendOrder" class="checkout-btn">Take my money!</button>
+      </div>
     </div>
   </div>
 </template>
@@ -40,6 +52,10 @@ export default {
   data() {
     return {};
   },
+  /*created() {
+    this.$store.dispatch("getMenu");
+    this.$store.dispatch("orderStatus");
+  },*/
   computed: {
     cart() {
       console.log(this.$store.state.order.cart);
@@ -57,8 +73,14 @@ export default {
     openCart() {
       this.$router.push("/menu");
     },
-    addOneProduct(state) {
-      this.$store.commit("addOneProduct", state);
+    addOneProduct(state, product) {
+      this.$store.commit("addOneProduct", product);
+    },
+    removeOneProduct(state, product) {
+      this.$store.commit("removeOneProduct", product);
+    },
+    sendOrder() {
+      this.$store.dispatch("sendOrder")
     }
   }
 };
@@ -71,7 +93,6 @@ export default {
   width: 37.5rem;
   height: 83.9rem;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.7);
 }
 .wrapper {
   position: absolute;
@@ -81,6 +102,9 @@ export default {
   bottom: -48.1%;
   background: #ffffff;
   border-radius: 3px;
+}
+.order{
+  list-style-type: none;
 }
 .upp {
   width: 37.5rem;
@@ -115,5 +139,20 @@ export default {
   position: relative;
   left: 89%;
   top: 10%;
+  cursor: pointer;
+}
+.total-text {
+  display: flex;
+  justify-content: left;
+}
+.checkout-btn {
+  font-size: 1.9rem;
+  padding: 0.8rem 2rem;
+  border: solid;
+  border-radius: 2.5rem;
+  color: white;
+  background: $black;
+  margin-top: 8rem;
+  margin-left: 15%;
 }
 </style>
