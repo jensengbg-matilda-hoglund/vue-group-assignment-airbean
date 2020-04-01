@@ -13,12 +13,12 @@
         <img src="../assets/graphics/bag.svg" />
       </button>
       <div class="ellipce">
-          <h3 class="quantity-ellipse">{{ $store.state.order.cart_counter }}</h3>
-        </div>
+        <h3 class="quantity-ellipse">{{ $store.state.order.cart_counter }}</h3>
+      </div>
     </section>
     <div class="wrapper">
       <h2 class="order-title">Din beställning</h2>
-      <br>
+      <br />
       <li class="order" v-for="product in cart" :key="product.id">
         <div class="product-title">
           <h2>
@@ -32,10 +32,14 @@
           <p>{{ product.price * product.quantity }}kr</p>
         </div>
         <img @click="addOneProduct(product)" class="arrow" src="@/assets/graphics/arrow-up.svg" />
-        <br>
+        <br />
         <strong class="arrow">{{ product.quantity }}</strong>
-        <br>
-        <img @click="removeOneProduct(product)" class="arrow" src="@/assets/graphics/arrow-down.svg" />
+        <br />
+        <img
+          @click="removeOneProduct(product)"
+          class="arrow"
+          src="@/assets/graphics/arrow-down.svg"
+        />
       </li>
       <br />
       <div class="total">
@@ -88,7 +92,8 @@ export default {
       this.$store.commit("removeOneProduct", product);
     },
     sendOrder() {
-      this.$store.dispatch("sendOrder");
+      clearInterval(this.$store.state.order.intervalID);
+      this.$store.dispatch("getOrderHistory");
       this.$router.push("/order-status");
     }
   }
@@ -106,14 +111,14 @@ export default {
 .wrapper {
   margin: 2rem;
   padding: 2rem;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 3px;
 }
 .order-title {
   margin-top: 3%;
   margin-bottom: 2%;
 }
-.order{
+.order {
   list-style-type: none;
 }
 .upp {
