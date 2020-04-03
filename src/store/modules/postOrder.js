@@ -57,17 +57,23 @@ const postOrder = {
     // remove/add from CART-component
     removeOneProduct(state, product) {
       const index = state.cart.findIndex(obj => obj.id === product.id);
+      const price = state.cart[index].price;
 
       if (state.cart[index].quantity === 1) {
-        state.cart[index].splice(index, 1);
+        state.cart.splice(index, 1);
       } else {
         state.cart[index].quantity -= 1;
+        state.cart[index].totPrice -= price
       }
       state.cart_counter--;
     },
     addOneProduct(state, product) {
       const index = state.cart.findIndex(obj => obj.id === product.id);
+      const price = state.cart[index].price;
+
       state.cart[index].quantity += 1;
+      state.cart[index].totPrice += price
+
       state.cart_counter++;
     }
   },
